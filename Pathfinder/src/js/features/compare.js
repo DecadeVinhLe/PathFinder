@@ -1,8 +1,0 @@
-/* Planner: compare bike / car / BRT / ride-hail */
-/* planner */
-function compare(){const f=$('pF').value,d=$('pT').value;if(f===''||d===''||f===d){$('ct').innerHTML='';$('pick').textContent=t('pick0');return}
-const a=AR[+f],b=AR[+d],h=hour(),km=hav(a[1],a[2],b[1],b[2])*1.3,rn=WX&&WX.rain,m=km/10*PM(h)*(rn?1.15:1),n1=near(a[1],a[2]),n2=near(b[1],b[2]),far=n1.d>1.5||n2.d>1.5;
-const R=[['bike',m,km*1200,rn?15:0],['car',m,km*3500,0],['brt',n1.d*12+8+km/18*60+n2.d*12,0,rn?3:0,far],['pool',m+8,km*6600,0]],ok=R.filter(r=>!r[5]),sc=r=>r[1]+r[2]/1000+r[3],bs=ok.reduce((x,y)=>sc(y)<sc(x)?y:x);
-$('ct').innerHTML=`<tr><th></th><th>${t('tm')}</th><th>${t('cost')}</th><th></th></tr>`+R.map(r=>`<tr${r===bs?' class="sel"':''}><td><b>${t('mode_'+r[0])}</b>${r===bs?' ⭐':''}</td><td>≈ ${Math.round(r[1])} ${t('min')}</td><td>≈ ${Math.round(r[2]/1000)}k</td><td>${r[5]?`<span class="mut">${t('far')}</span>`:`<button class="b" data-pick="${r[0]}">${t('choose')}</button>`}</td></tr>`).join('');
-$('pick').innerHTML=`<b>${t('best')}: ${t('mode_'+bs[0])}</b> (≈ ${Math.round(bs[1])} ${t('min')}, ≈ ${Math.round(bs[2]/1000)}k VND) · ${t('lv'+lv(h))}`;cw(R,sc,h);ADD={f:a[0],d:b[0],o:n1.k,x:n2.k};chart();cats()}
-document.addEventListener('click',e=>{const p=e.target.closest('[data-pick]');if(!p)return;const m=p.dataset.pick;if(window.PFJ&&PFJ.ready()){PFJ.carry(m=='bike'||m=='car'?'priv':m=='brt'?'pub':'pool',m,null);return}if(m=='bike'||m=='car'){$('pfr').value=ADD.f;$('pto').value=ADD.d;show('priv');$('pf').requestSubmit()}else if(m=='brt'){$('o').value=ADD.o;$('d').value=ADD.x==ADD.o?'':ADD.x;show('pub');pub()}else{$('sfr').value=ADD.f;$('sto').value=ADD.d;show('pool');$('sf').requestSubmit()}});
