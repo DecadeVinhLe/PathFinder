@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="public/images/readme-banner.png" alt="A traffic light against a blue summer sky" width="100%">
-</p>
+<p align="center"> <a href="https://blenderartists.org/t/anime-traffic-light/1550481"> Cover image: scenic cityscape with traffic lights under clear blue skies (Dreamstime) </a> </p>
 
 # Pathfinder: Smart Trip Planning for Ho Chi Minh City
 
