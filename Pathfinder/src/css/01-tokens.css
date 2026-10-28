@@ -1,0 +1,4 @@
+/* Design tokens: colours, shadows, dark theme */
+:root{--bg:#fff;--alt:#f3f7fc;--card:#fff;--ink:#1b2430;--mut:#4f5d6e;--ac:#0B63CE;--ac2:#3D8BF2;--on:#fff;--line:#dbe3ec;--bd:#bcc7d4;--sel:#e5f0fd;--lime:#FFC72C;--dk:#162130;--y:#FFC72C;--sh:0 4px 20px rgba(22,33,48,.09);
+--pat:url("../../public/images/hero-pattern.jpg")}
+:root[data-theme=dark]{--bg:#0e151e;--alt:#131c27;--card:#1a2431;--ink:#eef3f9;--mut:#aebbca;--ac:#5CA8FF;--ac2:#8cc2ff;--on:#08203d;--line:#2b3847;--bd:#405063;--sel:#1b3454;--dk:#0a1018;--sh:0 4px 20px rgba(0,0,0,.4);color-scheme:dark}

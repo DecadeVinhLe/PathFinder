@@ -1,0 +1,21 @@
+/* Header, navigation, dropdown, toolbar */
+/* ---------- header ---------- */
+#hd{background:var(--bg);position:sticky;top:0;z-index:40;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:center;gap:12px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.3rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.brand img{width:42px;height:42px;object-fit:contain}
+:root[data-theme=dark] .brand img{background:#fff;border-radius:10px;padding:3px}
+nav{display:flex;align-items:center;margin-left:auto;height:100%}
+nav>button,.ddw>button{background:none;color:var(--ink);border:0;font:inherit;font-size:.95rem;font-weight:500;padding:0 14px;height:66px;cursor:pointer;white-space:nowrap;position:relative}
+nav>button:hover,.ddw>button:hover{color:var(--ac)}
+nav>button[aria-current]::after,.ddw>button[aria-current]::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;background:var(--ac);border-radius:3px 3px 0 0}
+nav>button[aria-current],.ddw>button[aria-current]{color:var(--ac);font-weight:700}
+.ddw{position:relative;height:100%}
+.dd{position:absolute;left:0;top:100%;min-width:max-content;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px;display:none;box-shadow:0 12px 30px rgba(0,0,0,.18);z-index:50}
+.dd.open{display:block}
+.dd button{display:block;width:100%;text-align:left;color:var(--ink);background:none;border:0;font:inherit;font-size:.95rem;padding:10px 16px;border-radius:6px;cursor:pointer;white-space:nowrap}
+.dd button:hover,.dd button[aria-current]{background:var(--sel);color:var(--ac)}
+.tools{display:flex;gap:8px;margin-left:8px}
+.tool{background:transparent;color:var(--ink);border:1px solid var(--bd);font:inherit;font-weight:600;font-size:.85rem;padding:0 12px;min-width:44px;height:38px;border-radius:8px;cursor:pointer}
+.tool:hover{border-color:var(--ac);color:var(--ac)}
+#mnuB{display:none;background:none;border:1px solid var(--bd);color:var(--ink);border-radius:8px;width:44px;height:38px;font-size:1.25rem;cursor:pointer}

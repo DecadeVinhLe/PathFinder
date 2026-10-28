@@ -1,0 +1,7 @@
+/* Inner page headers */
+/* ---------- inner pages ---------- */
+.ph{background:linear-gradient(180deg,rgba(7,16,28,.7),rgba(7,16,28,.82)),var(--pat) center 40%/cover no-repeat;background-color:#0a1018;color:#fff;padding:70px 0 62px;text-align:center}
+.ph h1{font-size:clamp(2rem,5.5vw,3.4rem);font-weight:700;margin:0 0 12px;line-height:1.12}
+.ph p{max-width:700px;margin:0 auto;font-size:1.1rem;opacity:.96}
+.pg{background:var(--alt);padding:44px 0 80px;min-height:46vh}
+.v-list{max-width:780px;margin:0 auto}
