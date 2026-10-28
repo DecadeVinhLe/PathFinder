@@ -1,0 +1,7 @@
+/* Reset, typography, links */
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--ink);font:17px/1.65 Arial,"Helvetica Neue",Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+.w{max-width:1180px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:inherit}h2{font-size:1.6rem;font-weight:600;margin:18px 0 8px}h3{margin:0 0 10px;font-weight:600;font-size:1.1rem}
+a{color:var(--ac)}
