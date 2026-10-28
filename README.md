@@ -1,4 +1,4 @@
-<p align="center"> <a href="https://blenderartists.org/t/anime-traffic-light/1550481"> Cover image: scenic cityscape with traffic lights under clear blue skies (Dreamstime) </a> </p>
+
 
 # Pathfinder: Smart Trip Planning for Ho Chi Minh City
 
@@ -8,6 +8,8 @@ Pathfinder is a bilingual (English / Vietnamese) web app that helps people in Ho
 
 > **Demo project.** Traffic levels, parking, ride-hail prices, the bus timetable and the metro line are **sample data**. Weather is pulled live from Open-Meteo when available and falls back to a sample snapshot. Nothing here should be used for real trip decisions yet.
 
+
+<p align="center"> <img src="[public/images/readme-banner.png](https://wall.alphacoders.com/big.php?i=1245161)" alt="A traffic light against a blue summer sky" width="100%"> </p>
 ## Features
 
 - **Journey planner**: door-to-door plans that mix walking, your own bike or car, parking, bus, metro and ride-hail, with clock times and weather
