@@ -1,7 +1,7 @@
 /* Shared helpers, state, translator t(), geo maths */
 const $=i=>document.getElementById(i),Q=s=>[...document.querySelectorAll(s)],E=encodeURIComponent,esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const sg=(k,d)=>{try{return localStorage.getItem(k)||d}catch(e){return d}},ss=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
-let LG=sg('lg',/^vi/.test(navigator.language)?'vi':'en'),TH=sg('th','dark'),WX=null,CAT='din',CUR='home',ADD={};
+let LG=sg('lg',/^vi/.test(navigator.language)?'vi':'en'),TH=sg('th','light'),WX=null,CAT='din',CUR='home',ADD={};
 const t=k=>K[LG][k]||K.en[k]||k,toast=m=>{const e=$('toast');e.textContent=m;e.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(()=>e.style.display='none',2800)};
 const FOOD={din:['Phở','Cơm tấm','Bún bò','Hủ tiếu'],take:['Cơm hộp','Gỏi cuốn','Bún trộn','Cơm gà'],drk:['Cà phê','Trà sữa','Nước ép','Trà đào']};
 function mapUrl(q,o,d,fl,z){const l='&hl='+LG;return o&&d?'https://www.google.com/maps?output=embed&saddr='+E(o)+'&daddr='+E(d)+(fl?'&dirflg='+fl:'')+l:'https://www.google.com/maps?output=embed&q='+E(q||'Ho Chi Minh City')+(z?'&z='+z:'')+l}

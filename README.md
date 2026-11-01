@@ -9,7 +9,8 @@ Pathfinder is a bilingual (English / Vietnamese) web app that helps people in Ho
 > **Demo project.** Traffic levels, parking, ride-hail prices, the bus timetable and the metro line are **sample data**. Weather is pulled live from Open-Meteo when available and falls back to a sample snapshot. Nothing here should be used for real trip decisions yet.
 
 
-<p align="center"> <img src="https://images4.alphacoders.com/124/thumb-1920-1245161.jpg" alt="Anime-style traffic light against a blue summer sky" width="100%"> <br> <sub>Banner art by <a href="https://alphacoders.com/author/view/50235">Qi==Qi</a> via <a href="https://wall.alphacoders.com/big.php?i=1245161">Wallpaper Abyss</a></sub> </p>
+<p align="center"><img src="public/images/readme-banner.png" alt="Pathfinder home page" width="100%"></p>
+
 ## Features
 
 - **Journey planner**: door-to-door plans that mix walking, your own bike or car, parking, bus, metro and ride-hail, with clock times and weather
@@ -19,7 +20,7 @@ Pathfinder is a bilingual (English / Vietnamese) web app that helps people in Ho
 - **Private vs public**: your bike or car side by side with public transport
 - **Trip watch and alerts**: warns you if weather or traffic changes after you plan
 - **Community and monthly survey**, **partner vouchers**, and a **guide chat**
-- English / Vietnamese switch, dark / light theme, and a 3D animated hero
+- English / Vietnamese switch, dark/light theme, a road-scene hero and page backgrounds, a partner ad dock that stays on every page until closed, and a 3D city band (three.js) under the hero
 
 ## How the core tools work
 
@@ -103,7 +104,6 @@ Provider kinds are `geocode`, `weather`, `traffic`, `parking` and `ridehail`. Yo
 | Area | Choice |
 | --- | --- |
 | UI | Plain HTML, CSS and JavaScript (no framework, no build step) |
-| 3D hero | [three.js](https://threejs.org/) r128 from cdnjs, hidden automatically if WebGL is unavailable |
 | Font | Be Vietnam Pro (Google Fonts) |
 | Weather | [Open-Meteo](https://open-meteo.com/) forecast API |
 | Places | [OpenStreetMap Nominatim](https://nominatim.org/) search |
@@ -126,7 +126,7 @@ Pathfinder/
 │   │   ├── 01-tokens.css          #   colours, shadows, dark theme
 │   │   ├── 02-base.css … 09-chat-toast.css
 │   │   ├── 10-ads.css … 16-journey.css
-│   │   └── 17-restyle.css, 18-place-suggest.css
+│   │   └── 17-components.css, 18-place-suggest.css, 19-page-backgrounds.css, 20-menu-panel.css, 21-city-3d.css
 │   └── js/
 │       ├── core/                  # helpers, time, rush-hour model, transit engine, app shell, boot
 │       ├── data/                  # stops, routes, districts, places, promos
@@ -173,13 +173,15 @@ Pushes to `main` run the checks and publish the site with GitHub Pages. Enable i
 
 ## Team Crusaders
 
-Built for **Swin-Biz Rockstar**.
+We are first-year students at **Asia University**.
 
-| Member | Role | GitHub |
-| --- | --- | --- |
-| _Add name_ | _Add role_ | [@username](https://github.com/username) |
-| _Add name_ | _Add role_ | [@username](https://github.com/username) |
-| _Add name_ | _Add role_ | [@username](https://github.com/username) |
+| Member | Role | University | Year | Contact |
+| --- | --- | --- | --- | --- |
+| **Nguyễn Tuấn Vũ** | Leader | Asia University | 1st year | [ntvu0301@gmail.com](mailto:ntvu0301@gmail.com) |
+| **Lê Trần Lâm Vinh** | Member | Asia University | 1st year | [vinhlamle2003@gmail.com](mailto:vinhlamle2003@gmail.com) |
+| **Nguyễn Kim Thành** | Member | Asia University | 1st year | [falsetruth1506@gmail.com](mailto:falsetruth1506@gmail.com) |
+| **Huỳnh Đức Toàn** | Member | Asia University | 1st year | [huynhductoan0710@gmail.com](mailto:huynhductoan0710@gmail.com) |
+| **Nguyễn Phong** | Member | Asia University | 1st year | [beebuubalasao@gmail.com](mailto:beebuubalasao@gmail.com) |
 
 ## Contributing
 

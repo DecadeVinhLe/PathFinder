@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0B63CE"><title>Pathfinder</title><link rel="icon" id="fav" href="data:,">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" async></script>
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" /><meta name="theme-color" content="#EAF0F7"><title>Pathfinder</title><link rel="icon" id="fav" href="data:,">
+<script id="three-cdn" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" async></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="src/css/01-tokens.css">
 <link rel="stylesheet" href="src/css/02-base.css">
 <link rel="stylesheet" href="src/css/03-header.css">
@@ -14,29 +14,35 @@
 <link rel="stylesheet" href="src/css/11-transit-results.css">
 <link rel="stylesheet" href="src/css/12-alerts-bell.css">
 <link rel="stylesheet" href="src/css/13-accessibility.css">
-<link rel="stylesheet" href="src/css/14-theme-motion.css">
+<link rel="stylesheet" href="src/css/14-motion.css">
 <link rel="stylesheet" href="src/css/15-declutter.css">
 <link rel="stylesheet" href="src/css/16-journey.css">
-<link rel="stylesheet" href="src/css/17-restyle.css">
+<link rel="stylesheet" href="src/css/17-components.css">
 <link rel="stylesheet" href="src/css/18-place-suggest.css">
+<link rel="stylesheet" href="src/css/19-page-backgrounds.css">
+<link rel="stylesheet" href="src/css/20-menu-panel.css">
+<link rel="stylesheet" href="src/css/21-city-3d.css">
 <header id="hd"><div class="w top"><a class="brand" href="#home" data-v="home"><img src="public/images/logo.png" alt="Pathfinder logo">Pathfinder</a>
-<nav id="nav"><button data-v="home" data-i="n_home"></button><button data-v="trip" data-i="n_trip"></button>
+<div class="tools"><button class="tool" id="bellB" aria-label="Notifications" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg><span id="bellN" hidden></span></button></div>
+<button id="mnuB" aria-label="Menu" aria-expanded="false" aria-controls="mp"><span data-i="m_menu"></span><svg class="chev" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M5 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<div class="mp" id="mp"><nav id="nav"><button data-v="home" data-i="n_home"></button><button data-v="trip" data-i="n_trip"></button>
 <div class="ddw"><button id="trB" data-i="n_tr"></button><div class="dd" id="dd"><button data-v="priv" data-i="n_priv"></button><button data-v="pub" data-i="n_pub"></button><button data-v="pool" data-i="n_pool"></button></div></div>
 <button data-v="com" data-i="n_com"></button><button data-v="vou" data-i="n_vou"></button></nav>
-<div class="tools"><button class="tool" id="bellB" aria-label="Notifications" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg><span id="bellN" hidden></span></button><button class="tool" id="lgB">VI</button><button class="tool" id="thB" aria-label="Light / dark mode"></button></div><button id="mnuB" aria-label="Menu" aria-expanded="false">☰</button></div></header>
+<div class="mtools"><div class="tr"><span class="ml" data-i="m_lang"></span><button class="tool" id="lgB">VI</button></div><div class="tr"><span class="ml" id="thL" data-i="m_dark"></span><button class="tool sw" id="thB" role="switch" aria-checked="false" aria-labelledby="thL"></button></div></div></div></div></header>
 <div id="bellP" hidden role="dialog" aria-label="Notifications"></div>
 <div id="alerts" aria-live="polite"></div>
 <main>
 <section id="v-home">
-<div class="hero"><canvas id="hero3d" aria-hidden="true"></canvas><div><h1 data-i="h_t"></h1><p data-i="h_p"></p><div class="row"><button class="b" data-v="trip" data-i="tr_go"></button></div></div></div>
+<div class="hero"><div class="w hero-in"><div class="hero-copy"><p class="eyebrow" data-i="h_eye"></p><h1 data-i="h_t"></h1><p data-i="h_p"></p><div class="row"><button class="b" data-v="trip" data-i="tr_go"></button><button class="b out" data-v="pub" data-i="n_pub"></button></div></div><div class="board" id="heroBoard"></div></div></div>
 <div class="band alt pt"><div class="w">
 <div class="live"><div class="card" id="wxc"></div><div class="card" id="ch0"></div></div>
 <h2 class="sec-h" data-i="f_t"></h2><p class="lead" data-i="f_p"></p>
 <div class="g" id="feats"></div>
 <div class="card" id="svb"></div>
 </div></div>
+<div class="band" id="c3band"><div class="w"><h2 class="sec-h" data-i="c3_t"></h2><p class="lead" data-i="c3_p"></p><div class="c3" id="c3"><div class="c3-leg"></div><span class="c3-note" data-i="c3_n"></span></div></div></div>
 <div class="band ad"><div class="w"><div class="adslot" data-n="0"></div></div></div>
-<div class="cta"><h2 data-i="cta_t"></h2><p data-i="cta_p"></p><button class="b" data-v="vou" data-i="cta_btn"></button></div>
+<div class="cta"><div class="w tk"><div><h2 data-i="cta_t"></h2><p data-i="cta_p"></p></div><div class="stub"><button class="b" data-v="vou" data-i="cta_btn"></button></div></div></div>
 </section>
 
 <section id="v-priv" hidden><div class="ph"><div class="w"><h1 data-i="n_priv"></h1><p data-i="pd_priv"></p></div></div><div class="pg"><div class="w"><div class="adslot" data-n="1"></div>
@@ -74,6 +80,7 @@
 <div class="card" id="ch1"></div>
 </div></div></div></section>
 </main>
+<div id="adDock" class="adslot" data-n="4" role="complementary" aria-label="Sponsored"></div>
 <footer id="ft"><div class="w"><div class="fg">
 <div><a class="fb" href="#home" data-v="home"><img alt="">Pathfinder</a><p data-i="ft_blurb"></p></div>
 <div><h4 data-i="ft_ex"></h4><a href="#home" data-v="home" data-i="n_home"></a><a href="#trip" data-v="trip" data-i="n_trip"></a><a href="#com" data-v="com" data-i="n_com"></a><a href="#vou" data-v="vou" data-i="n_vou"></a></div>
@@ -81,8 +88,9 @@
 <div><h4 data-i="ft_info"></h4><p data-i="ft_i1"></p><p data-i="ft_i2"></p></div>
 </div><div class="fbot">© <span id="yr"></span> Pathfinder · <span data-i="ft_note"></span></div></div></footer>
 <div id="toast"></div>
-<button class="b" id="chatB">💬 <span data-i="chat"></span></button>
+<button class="b" id="chatB"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.1-4.4A8 8 0 1 1 21 12z"/></svg><span data-i="chat"></span></button>
 <div id="chatP"><div id="chatH">Pathfinder · <span data-i="chat"></span></div><div id="chatL"></div><form id="chatF"><input id="chatI" aria-label="chat"><button class="b" data-i="send"></button></form></div>
+<!-- Classic scripts share one global scope, so ORDER MATTERS. See CONTRIBUTING.md before reordering. -->
 <!-- Classic scripts share one global scope, so ORDER MATTERS. See CONTRIBUTING.md before reordering. -->
 <script src="src/js/core/form-submit-shim.js"></script>
 <script src="src/js/data/stops.js"></script>
@@ -109,10 +117,12 @@
 <script src="src/js/features/private-food.js"></script>
 <script src="src/js/features/notifications.js"></script>
 <script src="src/js/features/display-menu.js"></script>
+<script src="src/js/features/city-3d.js"></script>
+<script src="src/js/features/ad-dock.js"></script>
 <script src="src/js/core/boot.js"></script>
 <script src="src/js/i18n/journey-strings.js"></script>
 <script src="src/js/features/journey.js"></script>
 <script src="src/js/features/scroll-reveal.js"></script>
-<script src="src/js/features/hero-3d.js"></script>
+<script src="src/js/features/hero-board.js"></script>
 <script src="src/js/features/place-autocomplete.js"></script>
 </body></html>

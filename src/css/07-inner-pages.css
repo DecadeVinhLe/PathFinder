@@ -1,7 +1,6 @@
-/* Inner page headers */
-/* ---------- inner pages ---------- */
-.ph{background:linear-gradient(180deg,rgba(7,16,28,.7),rgba(7,16,28,.82)),var(--pat) center 40%/cover no-repeat;background-color:#0a1018;color:#fff;padding:70px 0 62px;text-align:center}
-.ph h1{font-size:clamp(2rem,5.5vw,3.4rem);font-weight:700;margin:0 0 12px;line-height:1.12}
-.ph p{max-width:700px;margin:0 auto;font-size:1.1rem;opacity:.96}
-.pg{background:var(--alt);padding:44px 0 80px;min-height:46vh}
-.v-list{max-width:780px;margin:0 auto}
+/* Inner page headers: big condensed title on bone, one rule under it */
+.ph{background:var(--bg);color:var(--ink);padding:clamp(32px,6vw,64px) 0 24px;text-align:left;border-bottom:1px solid var(--edge)}
+.ph h1{margin:0 0 10px}
+.ph p{max-width:56ch;margin:0;font-size:1.05rem;color:var(--mut)}
+.pg{background:var(--bg);padding:40px 0 80px;min-height:46vh}
+.v-list{max-width:780px;margin:0}

@@ -1,0 +1,7 @@
+/* Home page 3D band (three.js). The canvas fills the frame; the legend and note float on top. */
+.c3{position:relative;height:clamp(300px,46vw,460px);background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;touch-action:pan-y}
+.c3 canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.c3-leg{position:absolute;left:12px;bottom:12px;display:flex;flex-wrap:wrap;gap:6px;z-index:2;max-width:calc(100% - 24px)}
+.c3-chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:99px;background:var(--card);border:1px solid var(--bd);color:var(--ink);font:600 .78rem "Be Vietnam Pro",sans-serif}
+.c3-chip i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.c3-note{position:absolute;right:12px;top:10px;z-index:2;font:500 .72rem/1.2 var(--font-m);color:var(--mut)}
