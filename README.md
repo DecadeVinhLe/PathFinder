@@ -20,7 +20,7 @@ Pathfinder is a bilingual (English / Vietnamese) web app that helps people in Ho
 - **Private vs public**: your bike or car side by side with public transport
 - **Trip watch and alerts**: warns you if weather or traffic changes after you plan
 - **Community and monthly survey**, **partner vouchers**, and a **guide chat**
-- English / Vietnamese switch, dark / light theme, a road-scene hero and page backgrounds, a partner ad dock that stays on every page until closed, and a 3D city band (three.js) under the hero
+- English / Vietnamese switch, dark/light theme, a road-scene hero and page backgrounds, a partner ad dock that stays on every page until closed, and a 3D city band (three.js) under the hero
 
 ## How the core tools work
 
@@ -69,7 +69,7 @@ When you save a plan, Pathfinder re-checks every 30 seconds and raises an alert 
 The From and To boxes on Journey, Private vehicle and Shared ride suggest saved places, your recent searches and OpenStreetMap results limited to Vietnam, and offer "use my current location". Arrow keys, Enter and Escape work.
 
 ### 8. Community, vouchers, chat
-`src/js/features/community.js`, `promo-vouchers.js`, `chat.js`
+`src/js/features/community.js`, `ads-vouchers.js`, `chat.js`
 
 - **Community**: comments, experiences and suggestions with a filter and average rating, plus one survey per month
 - **Vouchers**: demo partner codes with an expiry once redeemed, and rotating ad slots
