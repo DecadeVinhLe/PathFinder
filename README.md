@@ -20,7 +20,7 @@ Pathfinder is a bilingual (English / Vietnamese) web app that helps people in Ho
 - **Private vs public**: your bike or car side by side with public transport
 - **Trip watch and alerts**: warns you if weather or traffic changes after you plan
 - **Community and monthly survey**, **partner vouchers**, and a **guide chat**
-- English / Vietnamese switch, dark / light theme, a road-scene hero and page backgrounds, a partner ad dock that stays on every page until closed, and a 3D city band (three.js) under the hero
+- English / Vietnamese switch, dark/light theme, a road-scene hero and page backgrounds, a partner ad dock that stays on every page until closed, and a 3D city band (three.js) under the hero
 
 ## How the core tools work
 
@@ -173,13 +173,15 @@ Pushes to `main` run the checks and publish the site with GitHub Pages. Enable i
 
 ## Team Crusaders
 
-Built for **Swin-Biz Rockstar**.
+We are first-year students at **Asia University**.
 
-| Member | Role | GitHub |
-| --- | --- | --- |
-| _Add name_ | _Add role_ | [@username](https://github.com/username) |
-| _Add name_ | _Add role_ | [@username](https://github.com/username) |
-| _Add name_ | _Add role_ | [@username](https://github.com/username) |
+| Member | Role | University | Year | Contact |
+| --- | --- | --- | --- | --- |
+| **Nguyễn Tuấn Vũ** | Leader | Asia University | 1st year | [ntvu0301@gmail.com](mailto:ntvu0301@gmail.com) |
+| **Lê Trần Lâm Vinh** | Member | Asia University | 1st year | [vinhlamle2003@gmail.com](mailto:vinhlamle2003@gmail.com) |
+| **Nguyễn Kim Thành** | Member | Asia University | 1st year | [falsetruth1506@gmail.com](mailto:falsetruth1506@gmail.com) |
+| **Huỳnh Đức Toàn** | Member | Asia University | 1st year | [huynhductoan0710@gmail.com](mailto:huynhductoan0710@gmail.com) |
+| **Nguyễn Phong** | Member | Asia University | 1st year | [beebuubalasao@gmail.com](mailto:beebuubalasao@gmail.com) |
 
 ## Contributing
 
