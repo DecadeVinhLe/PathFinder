@@ -8,8 +8,8 @@ Pathfinder is a bilingual (English / Vietnamese) web app that helps people in Ho
 
 > **Demo project.** Traffic levels, parking, ride-hail prices, the bus timetable and the metro line are **sample data**. Weather is pulled live from Open-Meteo when available and falls back to a sample snapshot. Nothing here should be used for real trip decisions yet.
 
+<img src="[https://example.com/path/to/image.png](https://images3.alphacoders.com/852/thumb-1920-852946.jpg)" width="300" alt="Logo">
 
-<p align="center"><img src="public/images/readme-banner.png" alt="Pathfinder home page" width="100%"></p>
 
 ## Features
 
