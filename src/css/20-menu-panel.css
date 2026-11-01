@@ -1,0 +1,13 @@
+/* Menu panel: Language + Dark mode rows. Labels were inheriting the header's white text and
+   disappeared on the light panel, so every row now sets its own ink colour and has a clear box. */
+.mtools{gap:8px;padding:12px 0 4px}
+.mtools .tr{min-height:52px;padding:6px 12px;background:var(--alt);border:1px solid var(--bd);border-radius:6px}
+.ml{color:var(--ink);font-weight:700;font-size:.95rem}
+#lgB{min-width:64px;height:38px;border:2px solid var(--edge);font-weight:700;letter-spacing:.02em}
+/* dark-mode switch: white track with a dark outline in light mode, dark icons */
+.tool.sw{border:2px solid var(--edge);background-color:#fff;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='3.6' fill='%230B1B33'/%3E%3Cpath d='M10 1.5v2.4M10 16.1v2.4M1.5 10h2.4M16.1 10h2.4M4 4l1.7 1.7M14.3 14.3 16 16M16 4l-1.7 1.7M5.7 14.3 4 16' stroke='%230B1B33' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16.5 12.2A7 7 0 0 1 7.8 3.5a7 7 0 1 0 8.7 8.7z' fill='%230B1B33'/%3E%3C/svg%3E")}
+.tool.sw::after{top:2px;left:2px;background:var(--night)}
+.tool.sw[aria-checked=true]{background-color:var(--tag)}
+.tool.sw[aria-checked=true]::after{transform:translateX(28px);background:var(--ink-c)}
+.tool.sw:hover{background-color:#fff}.tool.sw[aria-checked=true]:hover{background-color:var(--tag)}

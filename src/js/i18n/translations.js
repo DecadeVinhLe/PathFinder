@@ -6,10 +6,30 @@ n_priv|Private vehicle|Xe cá nhân
 n_pub|Public transit|Phương tiện công cộng
 n_pool|Shared ride|Xe công nghệ
 n_vou|Vouchers|Voucher
-h_t|Pick the smartest way across Ho Chi Minh City|Chọn cách đi thông minh nhất ở TP.HCM
-h_p|Compare vehicles on time, cost and weather, see rush-hour traffic forecasts, then jump straight to the right page.|So sánh phương tiện theo thời gian, chi phí, thời tiết, xem dự báo giờ cao điểm rồi đi thẳng tới trang phù hợp.
+h_t|Bike, bus, metro or ride? See it before you leave.|Xe máy, buýt, metro hay xe công nghệ? Xem trước khi bạn đi.
+h_p|Time, cost and weather side by side, for any trip across Ho Chi Minh City.|Thời gian, chi phí và thời tiết đặt cạnh nhau, cho mọi chuyến đi ở TP.HCM.
+m_menu|Menu|Menu
+m_lang|Language|Ngôn ngữ
+m_dark|Dark mode|Chế độ tối
+h_eye|Ho Chi Minh City trip planner|Lên đường ở TP.HCM
+hb_head|Sample trip: Thủ Đức → District 1|Chuyến mẫu: Thủ Đức → Quận 1
+hb_now|leaving now|đi ngay bây giờ
+hb_mode|Way|Cách đi
+hb_min|Min|Phút
+hb_cost|Cost|Giá
+hb_m_bike|Motorbike|Xe máy
+hb_m_car|Car|Ô tô
+hb_m_bus|Bus|Xe buýt
+hb_m_metro|Metro|Metro
+hb_m_ride|Ride-hail|Xe công nghệ
+hb_fast|Fastest|Nhanh nhất
+hb_cheap|Cheapest|Rẻ nhất
+hb_rain|rain: +8 min|mưa: +8 phút
+hb_jam|jam: +{n} min|kẹt xe: +{n} phút
+hb_clear|clear road|đường thoáng
+hb_note|Sample numbers, not live.|Số liệu mẫu, chưa phải thật.
 h_cta|Start planning|Bắt đầu lên kế hoạch
-f_t|5 core functions|5 chức năng cốt lõi
+f_t|What Pathfinder does|Pathfinder làm được gì
 f1t|Best-option compare|So sánh phương án tốt nhất
 f1d|Bus, car, public transit and ride-hail ranked by time, cost and weather.|Xe buýt, ô tô, công cộng, xe công nghệ xếp theo thời gian, chi phí, thời tiết.
 f2t|Rush-hour prediction|Dự báo giờ cao điểm

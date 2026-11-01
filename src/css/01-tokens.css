@@ -1,4 +1,5 @@
-/* Design tokens: colours, shadows, dark theme */
-:root{--bg:#fff;--alt:#f3f7fc;--card:#fff;--ink:#1b2430;--mut:#4f5d6e;--ac:#0B63CE;--ac2:#3D8BF2;--on:#fff;--line:#dbe3ec;--bd:#bcc7d4;--sel:#e5f0fd;--lime:#FFC72C;--dk:#162130;--y:#FFC72C;--sh:0 4px 20px rgba(22,33,48,.09);
---pat:url("../../public/images/hero-pattern.jpg")}
-:root[data-theme=dark]{--bg:#0e151e;--alt:#131c27;--card:#1a2431;--ink:#eef3f9;--mut:#aebbca;--ac:#5CA8FF;--ac2:#8cc2ff;--on:#08203d;--line:#2b3847;--bd:#405063;--sel:#1b3454;--dk:#0a1018;--sh:0 4px 20px rgba(0,0,0,.4);color-scheme:dark}
+/* Design tokens: traffic palette. Pale road-sign paper, deep-blue ink, highway-sign blue, signal red and amber. */
+:root{--ink-c:#0B1B33;--bone:#EAF0F7;--sign:#0F4C9A;--tag:#FFB000;--amber:#FFB000;--red:#E5322D;--night:#0A2B5C;
+--bg:#EAF0F7;--alt:#DCE6F2;--card:#FFFFFF;--ink:#0B1B33;--mut:#44587A;--ac:#0F4C9A;--ac2:#3C79CF;--on:#fff;--line:rgba(11,27,51,.22);--bd:#7F92B3;--sel:#DCE6F2;--lime:#FFB000;--dk:#0B1B33;--y:#FFB000;--edge:#0B1B33;--rd:3px;--sh:none;
+--font-d:"Barlow Condensed","Arial Narrow",Impact,sans-serif;--font-m:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+:root[data-theme=dark]{--bg:#07162B;--alt:#0C2140;--card:#0C2140;--ink:#EAF0F7;--mut:#9FB3D1;--ac:#FFB000;--ac2:#f6d56a;--on:#0B1B33;--line:rgba(234,240,247,.2);--bd:#6f6c60;--sel:#14305C;--dk:#06101F;--edge:#EAF0F7;--sh:none;color-scheme:dark}
