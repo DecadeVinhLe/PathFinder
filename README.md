@@ -110,7 +110,7 @@ Provider kinds are `geocode`, `weather`, `traffic`, `parking` and `ridehail`. Yo
 | Maps | Google Maps embeds and directions links (no API key) |
 | Storage | Browser `localStorage` |
 | Tooling | Node.js + pnpm (dev server and checker only) |
-| Hosting | GitHub Pages through GitHub Actions |
+| Hosting | Netlify through deploy actions|
 
 ## Project structure
 
