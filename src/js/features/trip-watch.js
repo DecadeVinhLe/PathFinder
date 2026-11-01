@@ -13,7 +13,7 @@ function alertsEval(){const A=[];if(!PLAN)return A;const n=nowM(),left=PLAN.dm-n
  return A.filter(a=>!ALD.has(a.id)).sort((a,b)=>b.sv-a.sv)}
 function alertsDraw(){const A=alertsEval(),el=$('alerts');A.forEach(a=>{if(SEEN.has(a.id))return;SEEN.add(a.id);nlogAdd(a);toast('⚠ '+a.title);try{if(Notification.permission=='granted')new Notification(a.title,{body:a.body})}catch(e){}});
  const sig=LG+JSON.stringify(A.map(a=>a.id))+A.length;if(el.dataset.s===sig)return;el.dataset.s=sig;
- el.innerHTML=A.length?`<div class="w">${A.slice(0,2).map(a=>`<div class="al s${a.sv}" role="alert"><div><b>${esc(a.title)}</b><p>${esc(a.body)}</p></div><div class="row">${a.fx?`<button class="b" data-v="trip">${t('al_cmp')}</button>`:''}<button class="lnk" data-ald="${esc(a.id)}">${t('al_x')}</button></div></div>`).join('')}</div>`:''}
+ el.innerHTML='' /* alert banner removed: alerts stay in the bell log only */}
 function watchDraw(){const w=$('watch');if(!w)return;w.innerHTML=`<h3>${t('wt_t')}</h3>`+(PLAN?`<p class="mut">${tf('wt_on',{f:esc(PLAN.f),d:esc(PLAN.d),t:fmt(PLAN.dm)})}</p><div class="row"><button class="b out" data-wstop>${t('wt_stop')}</button><button class="lnk" data-wtest>${t('wt_test')}</button></div>`:`<p class="mut">${t('wt_none')}</p>`)}
 function stayUI(){const dm=PLAN?PLAN.dm:nowM(),ev=dm+STAY,k=SIM||wxW(ev/60).k;return`<h3 style="margin-top:18px">${t('st_t')}</h3><div class="row">${[30,45,60,90].map(n=>`<button class="b${STAY==n?'':' out'}" data-st="${n}">${tf('st_m',{n})}</button>`).join('')}</div>`+(STAY?`<div class="v">${tf('st_leave',{t:fmt(ev),w:wl(k)})}</div>`:'')}
 document.addEventListener('click',e=>{let b;

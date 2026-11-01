@@ -1,0 +1,56 @@
+/* Component look, loaded last: hairline panels, mono labels, square controls, yellow price tags */
+*{scrollbar-width:thin;scrollbar-color:var(--bd) transparent}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--tag);outline-offset:2px}
+.b,button.b,.btn{font:600 .78rem var(--font-m);letter-spacing:.08em;text-transform:uppercase;border-radius:2px;padding:10px 20px;border:1px solid var(--ac);background:var(--ac);color:var(--on);min-height:46px}
+.b:hover{filter:brightness(1.15);transform:none}
+.b.out{background:transparent;color:var(--ink);border-color:var(--edge)}
+.b.out:hover{background:var(--ink);color:var(--bg);filter:none}
+.tabs .b{background:var(--card);border:1px solid var(--edge);color:var(--ink)}
+.tabs .b[aria-pressed=true],.row .b.out[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.hero .row .b:first-child,.b.alt{background:var(--tag);border-color:var(--tag);color:#0B1B33}
+#feats .b::after,.hero .b:first-child::after,.tk .b::after{content:" →";letter-spacing:0}
+input,select,textarea{font:16px/1.4 "Be Vietnam Pro",system-ui,sans-serif;border-radius:3px;background:var(--card);border:1px solid var(--bd);color:var(--ink)}
+input:focus,select:focus,textarea:focus{border-color:var(--ink);background:var(--card)}
+label{font:500 .7rem var(--font-m);text-transform:uppercase;letter-spacing:.08em;color:var(--mut)}
+label input,label select,label textarea{text-transform:none;letter-spacing:0}
+.card,.alt-i,.jam,.urg,.v-card,#chatP,.al,#bellP,#dispP,.promo,.rd a,.stat,.dp,.note,.v{border-radius:3px}
+.card{padding:24px;border:1px solid var(--line);box-shadow:none;background:var(--card)}
+.v{border-left:4px solid var(--tag);background:var(--card)}
+.v-card{border:1px solid var(--line);box-shadow:none}.v-btn{border-radius:2px}
+.alt-i.on{box-shadow:0 0 0 2px var(--ink)}
+.eta{border-radius:3px;background:var(--dk);color:#EAF0F7;box-shadow:none;border-top:4px solid var(--tag)}
+th{font:500 .68rem var(--font-m);text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+td{font-variant-numeric:tabular-nums}
+td .b{padding:6px 14px;min-height:38px}
+tr.sel{background:var(--sel)}
+iframe{border:1px solid var(--edge);border-radius:2px}
+.badge2,.tag2{border-radius:2px;font-family:var(--font-m)}
+.wx b{font:700 2.8rem/1 var(--font-d)}
+.wh{border-radius:2px;font-family:var(--font-m);font-size:.74rem}
+.lc .ax,.lc .tipt{font-family:var(--font-m)}
+.rd a{box-shadow:none;transition:none}.rd a:hover{transform:none;outline:2px solid var(--ink)}
+/* ride brand gradients live in 19-page-backgrounds.css */
+.promo{background:var(--dk)!important;background-image:none!important;color:#EAF0F7;border:1px solid var(--dk)}
+.promo::after{display:none}
+.promo-emoji{border-radius:2px;background:rgba(255,255,255,.14)}
+.promo-cta{border-radius:2px;background:var(--tag);color:#0B1B33;box-shadow:none;font:600 .66rem var(--font-m);letter-spacing:.06em;text-transform:uppercase}
+.promo-label{border-radius:0;font-family:var(--font-m)}
+#chatB{border-radius:2px;box-shadow:none;background:var(--tag);color:#0B1B33;gap:8px;font:600 .76rem var(--font-m);text-transform:uppercase;letter-spacing:.06em}
+#chatH{background:var(--dk);color:#EAF0F7}
+.seg button:first-child{border-radius:2px 0 0 2px}.seg button:last-child{border-radius:0 2px 2px 0}
+#tCmp>h2,#tCmp>div:first-of-type{display:none}
+@media (max-width:600px){.card{padding:18px}}
+
+/* traffic theme details */
+.mp .tool{color:var(--ink);border-color:var(--edge)}
+.tool.sw{border-color:var(--edge)}
+#lgB{background:var(--ink);color:var(--bg)}
+.tk{border-top:6px solid var(--tag)}
+.tk h2{color:#fff}
+.hero .row .b:first-child,.b.alt{background:var(--tag);border-color:var(--tag);color:#0B1B33}
+.hero .row .b.out{color:#fff;border-color:rgba(255,255,255,.8)}
+.hero .row .b.out:hover{background:#fff;color:#0B1B33}
+.bd-c em.c{background:var(--sign);color:#fff}
+.bd-c em:not(.c){background:var(--red);color:#fff}
+.bd-t b{background:var(--tag);color:#0B1B33}
+.badge2.red,.urg{border-color:var(--red)}

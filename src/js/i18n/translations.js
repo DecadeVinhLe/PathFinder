@@ -6,10 +6,30 @@ n_priv|Private vehicle|Xe cá nhân
 n_pub|Public transit|Phương tiện công cộng
 n_pool|Shared ride|Xe công nghệ
 n_vou|Vouchers|Voucher
-h_t|Pick the smartest way across Ho Chi Minh City|Chọn cách đi thông minh nhất ở TP.HCM
-h_p|Compare vehicles on time, cost and weather, see rush-hour traffic forecasts, then jump straight to the right page.|So sánh phương tiện theo thời gian, chi phí, thời tiết, xem dự báo giờ cao điểm rồi đi thẳng tới trang phù hợp.
+h_t|Bike, bus, metro or ride? See it before you leave.|Xe máy, buýt, metro hay xe công nghệ? Xem trước khi bạn đi.
+h_p|Time, cost and weather side by side, for any trip across Ho Chi Minh City.|Thời gian, chi phí và thời tiết đặt cạnh nhau, cho mọi chuyến đi ở TP.HCM.
+m_menu|Menu|Menu
+m_lang|Language|Ngôn ngữ
+m_dark|Dark mode|Chế độ tối
+h_eye|Ho Chi Minh City trip planner|Lên đường ở TP.HCM
+hb_head|Sample trip: Thủ Đức → District 1|Chuyến mẫu: Thủ Đức → Quận 1
+hb_now|leaving now|đi ngay bây giờ
+hb_mode|Way|Cách đi
+hb_min|Min|Phút
+hb_cost|Cost|Giá
+hb_m_bike|Motorbike|Xe máy
+hb_m_car|Car|Ô tô
+hb_m_bus|Bus|Xe buýt
+hb_m_metro|Metro|Metro
+hb_m_ride|Ride-hail|Xe công nghệ
+hb_fast|Fastest|Nhanh nhất
+hb_cheap|Cheapest|Rẻ nhất
+hb_rain|rain: +8 min|mưa: +8 phút
+hb_jam|jam: +{n} min|kẹt xe: +{n} phút
+hb_clear|clear road|đường thoáng
+hb_note|Sample numbers, not live.|Số liệu mẫu, chưa phải thật.
 h_cta|Start planning|Bắt đầu lên kế hoạch
-f_t|5 core functions|5 chức năng cốt lõi
+f_t|What Pathfinder does|Pathfinder làm được gì
 f1t|Best-option compare|So sánh phương án tốt nhất
 f1d|Bus, car, public transit and ride-hail ranked by time, cost and weather.|Xe buýt, ô tô, công cộng, xe công nghệ xếp theo thời gian, chi phí, thời tiết.
 f2t|Rush-hour prediction|Dự báo giờ cao điểm
@@ -254,5 +274,7 @@ x_now_ok|Your departure time is already among the best in this window.|Giờ b�
 x_pr_rain|Rain is adding about 15% to driving time.|Mưa đang làm thời gian lái xe tăng khoảng 15%.
 x_pr_note|Estimates come from the city rush-hour model, not live traffic. Open Google Maps for live times.|Ước tính dựa trên mô hình giờ cao điểm của thành phố, không phải giao thông trực tiếp. Mở Google Maps để xem giờ thực tế.
 x_pveh|Vehicle|Phương tiện
-x_pleave|Leave at|Khởi hành lúc`.split('\n').reduce((o,l)=>{const p=l.split('|');o.en[p[0]]=p[1];o.vi[p[0]]=p[2];return o},{en:{},vi:{}});
+x_pleave|Leave at|Khởi hành lúc
+al_cmp|Compare options|So sánh phương án
+ad_close|Close ad|Đóng quảng cáo`.split('\n').reduce((o,l)=>{const p=l.split('|');o.en[p[0]]=p[1];o.vi[p[0]]=p[2];return o},{en:{},vi:{}});
 Object.assign(K.en,{"al_chg_t": "Conditions changed since you planned", "al_chg_b": "{w} now. Trip: {f} to {d}, leaving {t}.", "al_fc_t": "Weather expected to change before you leave", "al_fc_b": "{w} forecast around {t} for your trip to {d}.", "al_trf_t": "Traffic is building", "al_trf_b": "Rush-hour level rose to “{l}” since you planned your {t} departure.", "al_dep_t": "Time to get ready", "al_dep_b": "Leave in {n} min for {d}. Current conditions: {w}.", "al_stay": "Dine longer (+30 min)", "al_plan": "Review plan", "al_x": "Dismiss", "wt_t": "Trip watch", "wt_none": "Compare a trip above and Pathfinder will watch weather and traffic until you leave.", "wt_on": "Watching {f} to {d}, leaving {t}. You will get an alert if conditions change.", "wt_stop": "Stop watching", "wt_test": "Preview a sudden change", "st_t": "Time at the table", "st_m": "{n} min", "st_leave": "Leave the table at {t}. Forecast then: {w}.", "pfood_t": "Food on your trip", "pfood_p": "Pick a meal stop. Take-away is quickest if you are riding or driving.", "pf_here": "Near destination", "pf_mid": "Along the route", "pf_est": "Typical stop: {n} min. Arrive about {t}."});Object.assign(K.vi,{"al_chg_t": "Điều kiện đã thay đổi kể từ khi bạn lên kế hoạch", "al_chg_b": "Hiện tại: {w}. Chuyến đi: {f} đến {d}, khởi hành {t}.", "al_fc_t": "Thời tiết sắp thay đổi trước giờ đi", "al_fc_b": "Dự báo {w} khoảng {t} cho chuyến đến {d}.", "al_trf_t": "Giao thông đang đông dần", "al_trf_b": "Mức giờ cao điểm đã tăng lên “{l}” kể từ khi bạn lên kế hoạch đi lúc {t}.", "al_dep_t": "Sắp đến giờ chuẩn bị", "al_dep_b": "Còn {n} phút nữa khởi hành đến {d}. Hiện tại: {w}.", "al_stay": "Ăn lâu hơn (+30 phút)", "al_plan": "Xem kế hoạch", "al_x": "Đóng", "wt_t": "Theo dõi chuyến đi", "wt_none": "So sánh một chuyến đi ở trên, Pathfinder sẽ theo dõi thời tiết và giao thông cho đến khi bạn đi.", "wt_on": "Đang theo dõi {f} đến {d}, khởi hành {t}. Bạn sẽ nhận cảnh báo nếu điều kiện thay đổi.", "wt_stop": "Ngừng theo dõi", "wt_test": "Xem thử một thay đổi đột ngột", "st_t": "Thời gian ngồi ăn", "st_m": "{n} phút", "st_leave": "Rời quán lúc {t}. Dự báo lúc đó: {w}.", "pfood_t": "Ăn uống trong chuyến đi", "pfood_p": "Chọn điểm dừng ăn uống. Mang đi là nhanh nhất nếu bạn đi xe.", "pf_here": "Gần điểm đến", "pf_mid": "Dọc đường đi", "pf_est": "Dừng khoảng {n} phút. Đến khoảng {t}."});
