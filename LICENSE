@@ -1,21 +1,56 @@
-MIT License
+PATHFINDER LICENSE (SWIN-BIZ ROCKSTAR ONLY)
 
-Copyright (c) 2026 Crusaders
+Copyright (c) 2026 Team Crusaders. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+"Pathfinder" means the source code, markup, styles, scripts, text, data files and
+original images in this repository, and any copy or part of them (the "Work").
+"Crusaders" means the team that created the Work: Nguyen Tuan Vu, Le Tran Lam Vinh,
+Nguyen Kim Thanh, Huynh Duc Toan and Nguyen Phong. "Swin-Biz Rockstar" means the
+Swin-Biz Rockstar program or competition and its organisers and judges, acting in
+that role.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. GRANT
+   Crusaders grants Swin-Biz Rockstar, and only Swin-Biz Rockstar, a non-exclusive,
+   non-transferable, non-sublicensable, royalty-free licence to view, run, test and
+   evaluate the Work, and to make the copies needed to do so, for the purpose of
+   organising, judging and promoting Swin-Biz Rockstar.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+2. NO OTHER USE
+   No other person or organisation receives any licence. Without Crusaders' prior
+   written permission, nobody else may use, copy, modify, merge, publish, distribute,
+   sublicense, sell, host, deploy, or create derivative works from the Work, in whole
+   or in part, for any purpose, including commercial, educational or personal use.
+   Swin-Biz Rockstar may not pass the Work on to anyone else, and may not use it in
+   any other competition, program or product.
+
+3. OWNERSHIP
+   Crusaders keeps all ownership of and rights in the Work. Nothing here transfers
+   any right except the limited licence in section 1. Crusaders may use, license and
+   publish its own Work however it chooses.
+
+4. ATTRIBUTION
+   Any permitted display of the Work must keep this notice and credit "Team Crusaders".
+
+5. THIRD-PARTY MATERIALS ARE NOT COVERED
+   This licence covers only what Crusaders created. Other material keeps its own
+   owners and terms and is not licensed by this file, including: three.js (MIT
+   licence, loaded from a CDN), Open-Meteo weather data (CC BY 4.0), OpenStreetMap
+   and Nominatim data (ODbL), Google Fonts (SIL Open Font Licence) and Google Maps
+   embeds (Google terms), partner and brand names and logos (Xanh SM, Be, Grab and
+   others, which belong to their owners), and any background or other image that
+   Crusaders did not draw itself, whose rights remain with its original creator.
+
+6. TERMINATION
+   This licence ends automatically if Swin-Biz Rockstar breaks section 2, or when
+   Crusaders gives written notice that it is withdrawn. On termination, all copies
+   must be deleted.
+
+7. NO WARRANTY
+   The Work is a demo project that uses sample data. It is provided "as is", without
+   warranty of any kind, express or implied, including fitness for a particular
+   purpose. In no event are the authors liable for any claim, damages or other
+   liability arising from the Work or its use.
+
+8. CONTACT
+   To ask for permission or another licence, contact Team Crusaders through its
+   leader, Nguyen Tuan Vu, at ntvu0301@gmail.com.
