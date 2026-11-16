@@ -130,6 +130,20 @@ private|Private|Cá nhân
 wxfit|Weather advice|Lời khuyên thời tiết
 verd_pub|Verdict: weather and cost favour public transit.|Kết luận: thời tiết và chi phí nghiêng về xe công cộng.
 verd_priv|Verdict: private transport is better right now.|Kết luận: hiện tại xe cá nhân tốt hơn.
+community_live|Shared feed · refreshes every 5 seconds · latest 100 posts|Bảng tin chung · cập nhật mỗi 5 giây · 100 bài mới nhất
+community_error|Unable to connect. Your message is kept here; please try again.|Không thể kết nối. Nội dung vẫn được giữ trong ô nhập; vui lòng thử lại.
+community_notice|Posts and trip details are public and saved online. Avoid personal information. You can delete your posts from this browser.|Bài viết và thông tin chuyến đi được công khai và lưu trực tuyến. Tránh thông tin cá nhân. Bạn có thể xóa bài từ trình duyệt này.
+trip_details|Trip details (optional)|Thông tin chuyến đi (không bắt buộc)
+trip_depart|Actual departure (your local time)|Giờ khởi hành thực tế (giờ địa phương)
+trip_duration|Travel time (minutes)|Thời gian di chuyển (phút)
+trip_congestion|Observed congestion|Tình trạng giao thông thực tế
+trip_unknown|Not specified|Chưa xác định
+trip_low|Light traffic|Thông thoáng
+trip_moderate|Moderate traffic|Trung bình
+trip_heavy|Heavy traffic|Đông đúc
+trip_standstill|Standstill|Ùn tắc
+trip_invalid|Enter a past departure and a travel time of 1–1440 whole minutes.|Nhập giờ khởi hành trong quá khứ và thời gian từ 1–1440 phút nguyên.
+training_consent|Allow this post and trip details to be used for future rush-hour prediction training.|Cho phép sử dụng bài viết và thông tin chuyến đi để huấn luyện dự đoán giờ cao điểm trong tương lai.
 share_t|Share your experience|Chia sẻ trải nghiệm
 type|Type|Loại
 ty_c|Comment|Bình luận

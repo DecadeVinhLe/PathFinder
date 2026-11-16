@@ -190,3 +190,13 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the workflow, where files go and the 
 ## License
 
 Released under the [MIT License](LICENSE).
+
+### Shared community data
+
+Community posts use Netlify Database through `/api/community/posts`, served by a Netlify Server on Node 24. Netlify applies the SQL migrations during deployment. No database credentials belong in browser code. The feed displays the latest 100 posts and refreshes every five seconds while the community page is visible; older records remain stored.
+
+Posts can include origin, destination, actual departure (stored with timezone), travel minutes, and observed congestion. `created_at` records submission time separately. For future training, select only rows with `training_consent = TRUE`; departure and duration are optional, self-reported observations, and require cleaning before training. This change collects data; it does not train or alter the prediction engine. Deleting a post removes its stored training data too.
+
+An anonymous HttpOnly cookie controls deletion from the posting browser. It is not a user account and clearing cookies loses deletion access. Existing browser-only posts and monthly survey responses remain on their original device and are not automatically published.
+
+Run API validation checks with `node --test tests/community-api.test.mjs`. Full persistence checks require a deployed preview after migrations have been applied.
