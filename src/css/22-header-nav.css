@@ -1,13 +1,13 @@
 /* 22 Header and menu redesign (loaded last).
    Desktop: a real inline nav with a floating Transport menu. Mobile: a full-width sheet with a scrim.
-   Same traffic palette; the amber lane-line replaces the flat amber rule. */
+   Same traffic palette; a soft hairline and shadow separate the header from the page (no amber rule). */
 :root{--hd-h:68px;--ease:cubic-bezier(.23,1,.32,1)}
-#hd{background:rgba(10,43,92,.93);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);border-bottom:0;box-shadow:0 1px 0 rgba(255,255,255,.08);transition:box-shadow .2s}
+#hd{background:linear-gradient(180deg,rgba(12,49,103,.94),rgba(9,38,82,.94));-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 4px 18px rgba(4,14,32,.18);transition:box-shadow .2s}
 #hd.scrolled{box-shadow:0 10px 28px rgba(4,14,32,.38)}
-#hd::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--tag)}
 .top{position:static;min-height:var(--hd-h);gap:8px}
-.brand{font-size:1.55rem;transition:opacity .15s}.brand:hover{opacity:.85}
-.brand img{height:38px}
+.brand{gap:12px;font-size:1.55rem;letter-spacing:.06em;transition:opacity .15s}.brand:hover{opacity:.88}
+.brand img{height:38px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.25),0 0 0 1px rgba(255,255,255,.15)}
+.brand:focus-visible,#hd button:focus-visible{outline:2px solid var(--tag);outline-offset:3px}
 #hd .tool{border:0;background:rgba(255,255,255,.1);border-radius:50%;transition:background .15s,transform .1s}
 #hd .tool:hover{background:rgba(255,255,255,.2)}#hd .tool:active{transform:scale(.95)}
 #bellN{box-shadow:0 0 0 2px var(--night)}
@@ -49,7 +49,10 @@ nav>button,.ddw>button{gap:14px;justify-content:flex-start;min-height:52px;paddi
  nav>button,.ddw>button{position:relative;width:auto;min-height:44px;padding:0 16px;border-radius:999px;color:#fff;font:600 .92rem "Be Vietnam Pro",sans-serif;text-transform:none;letter-spacing:0;margin:0;cursor:pointer;transition:background .15s}
  #hd nav>button:hover,#hd .ddw>button:hover{background:rgba(255,255,255,.12)}
  #hd nav>button[aria-current],#hd .ddw>button[aria-current]{background:rgba(255,255,255,.1);color:#fff;box-shadow:none}
- nav>button[aria-current]::after,.ddw>button[aria-current]::after{content:"";position:absolute;left:16px;right:16px;bottom:5px;height:3px;border-radius:2px;background:var(--tag)}
+ nav{padding:4px;border-radius:999px;background:rgba(255,255,255,.06)}
+ nav>button,.ddw>button{min-height:38px!important}
+ #hd nav>button[aria-current],#hd .ddw>button[aria-current]{background:#fff;color:var(--night);box-shadow:0 2px 8px rgba(4,14,32,.25)}
+ #trB::after{content:"";width:6px;height:6px;margin-left:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);opacity:.7}
  .dd,.dd.open{display:none;position:absolute;top:calc(100% + 12px);left:0;min-width:240px;margin:0;padding:6px;background:var(--bg);border:1px solid var(--line);border-radius:14px;box-shadow:0 20px 44px rgba(4,14,32,.32)}
  .dd.open{display:grid;animation:mpIn .16s var(--ease)}
  .dd button{min-height:44px;padding:0 14px;border-radius:9px}
