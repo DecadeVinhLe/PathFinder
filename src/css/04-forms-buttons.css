@@ -18,3 +18,11 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--ac);outline-offset:
 .tabs .b[aria-pressed=true]{background:var(--ac);color:var(--on);border-color:var(--ac)}
 .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;align-items:center}
 .mut{color:var(--mut);font-size:.95rem}
+
+/* Dropdown lists: the open list is drawn by the browser, so it must get its own solid
+   background and full-contrast text, otherwise dark mode shows pale text on white. */
+select{color-scheme:light}
+:root[data-theme=dark] select{color-scheme:dark}
+select option,select optgroup{background-color:var(--card);color:var(--ink);font-weight:500}
+select option:checked,select option:hover,select option:focus{background-color:var(--ac);color:var(--on)}
+select option:disabled{color:var(--mut)}

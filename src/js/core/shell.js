@@ -7,8 +7,8 @@ function lang(){document.documentElement.lang=LG;Q('[data-i]').forEach(e=>e.text
 $('lgB').onclick=()=>{LG=LG=='vi'?'en':'vi';ss('lg',LG);lang()};
 const thm=()=>{document.documentElement.dataset.theme=TH;$('thB').setAttribute('aria-checked',TH=='dark');$('thB').title=TH=='dark'?'Light mode':'Dark mode'};$('thB').onclick=()=>{TH=TH=='dark'?'light':'dark';ss('th',TH);thm()};
 const opt=(id,a)=>$(id).innerHTML=a;
-const ST=[...new Set(ROUTES.flatMap(r=>r.stops.map(s=>s[0])))].sort((a,b)=>STOPS[a].name.localeCompare(STOPS[b].name,'vi')).map(k=>`<option value="${k}">${STOPS[k].name}</option>`).join('');
-opt('o',ST);opt('d',ST);$('o').value='hub';$('d').value='village';
+const ST=[...new Set(ROUTES.flatMap(r=>r.stops.map(s=>s[0])))].sort((a,b)=>(STOPS[b].area.startsWith('TP. Thủ Đức')-STOPS[a].area.startsWith('TP. Thủ Đức'))||STOPS[a].name.localeCompare(STOPS[b].name,'vi')).map(k=>`<option value="${k}">${STOPS[k].name}</option>`).join('');
+opt('o',ST);opt('d',ST);$('o').value='sTien';$('d').value='gaTD';
 Q('select.ar').forEach(s=>s.innerHTML='<option value="">—</option>'+AR.map((a,i)=>`<option value="${i}">${a[0]}</option>`).join(''));
 const n0=new Date();$('tm').value=('0'+n0.getHours()).slice(-2)+':'+('0'+n0.getMinutes()).slice(-2);$('ptm').value=$('tm').value;
 $('cmp').onclick=compare;$('tm').onchange=compare;$('go').onclick=()=>{PUB.sel=null;pub()};['o','d','av','de','pk'].forEach(i=>$(i).onchange=()=>{PUB.sel=null;pub()});

@@ -25,9 +25,8 @@
 /* Shared ride brand cards */
 .rd a{border:0}
 .xsm{background:linear-gradient(135deg,#0B63CE 0%,#2F8CFF 55%,#FFD60A 100%);color:#fff}
-.be{background:linear-gradient(135deg,#FFD60A 0%,#FFE766 45%,#1D5FD6 100%);color:#0B1B33}
-.grab{background:linear-gradient(135deg,#00B14F 0%,#6FD58F 55%,#FFFFFF 100%);color:#064E2B;border:2px solid #00B14F}
-.xsm small{color:#EAF3FF}.be small{color:#0B1B33}
+.taxi{background:linear-gradient(135deg,#FFD60A 0%,#FFE766 55%,#F59E0B 100%);color:#2B2000}.metro{background:linear-gradient(135deg,#D62839 0%,#F4717D 100%);color:#fff}
+.xsm small{color:#EAF3FF}.taxi small{color:#2B2000}.metro small{color:#FFE9EC}
 
 /* Ad dock: one partner ad that stays on screen on every page until the visitor closes it.
    The inline ads from the original design (home, Private vehicle, Public transit) are untouched. */

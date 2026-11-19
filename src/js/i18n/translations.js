@@ -87,8 +87,21 @@ crowd|Crowd|Mức đông
 ad|AD|QUẢNG CÁO
 ad_cta|Vouchers|Voucher
 xsm|Electric cars & bikes|Xe điện & xe máy điện
-be|Cars, bikes, delivery|Xe hơi, xe máy, giao hàng
-grab|Rides & delivery|Gọi xe & giao hàng
+txi_n|Local taxi|Taxi địa phương
+txi|Find a licensed taxi nearby|Tìm taxi có giấy phép gần bạn
+metro_s|Metro Line 1 operator|Đơn vị vận hành Metro số 1
+ml_none|No Metro Line 1 trip found for these stops.|Không có chuyến Metro số 1 phù hợp cho các trạm này.
+pt_head|Route {r} leaves {s} at {t} and gets to {d} at {u}.|Tuyến {r} rời {s} lúc {t}, tới {d} lúc {u}.
+pt_other|Other ways to get there|Các cách đi khác
+pt_metro|Metro Line 1|Metro số 1
+pt_site|Operator site|Trang đơn vị vận hành
+pt_next|Next bus boards|Chuyến kế tiếp lên xe
+pt_gmaps|Open this route in Google Maps|Mở tuyến này trên Google Maps
+ml_leave|Leave|Đi lúc
+ml_arrive|arrive|tới lúc
+ptag|Potential partner|Đối tác tiềm năng
+pt_ride|Ride providers we want to work with.|Đơn vị xe công nghệ chúng tôi muốn hợp tác.
+pt_pub|Public transit operators we want to work with.|Đơn vị vận tải công cộng chúng tôi muốn hợp tác.
 vou_p|Redeem partner codes for drinks, local fashion and snacks (demo).|Đổi mã đối tác đồ uống, thời trang, đồ ăn vặt Việt (demo).
 rdm|Redeem code|Đổi mã
 your|Your code|Mã của bạn
@@ -194,7 +207,7 @@ priv_start|The map opens on the Thu Duc area. Enter From and To for a route.|B�
 pd_plan|Compare bike, car, public transit and ride-hail for your trip, then choose private or public.|So sánh xe máy, ô tô, công cộng và xe công nghệ cho chuyến đi, rồi chọn xe riêng hay công cộng.
 pd_priv|Route your own bike or car on Google Maps, with rush-hour and weather advice.|Xem đường đi bằng xe máy hoặc ô tô trên Google Maps, kèm lời khuyên giờ cao điểm và thời tiết.
 pd_pub|Pick two public transit stops and Pathfinder finds the best trip, avoiding rush hour.|Chọn hai trạm công cộng, Pathfinder tìm chuyến tốt nhất và né giờ cao điểm.
-pd_pool|Open Xanh SM, Be or Grab, or preview your ride on the map.|Mở Xanh SM, Be hoặc Grab, hoặc xem trước đường đi trên bản đồ.
+pd_pool|Open Green SM or a local taxi, or preview your ride on the map.|Mở Green SM hoặc taxi địa phương, hoặc xem trước đường đi trên bản đồ.
 pd_com|Rate, comment and share what the commute is really like.|Đánh giá, bình luận và chia sẻ trải nghiệm đi lại thực tế.
 f_p|Pathfinder compares bike, car, public transit and ride-hail across Ho Chi Minh City by time, cost and weather, then takes you to the right page.|Pathfinder so sánh xe máy, ô tô, công cộng và xe công nghệ ở TP.HCM theo thời gian, chi phí, thời tiết rồi đưa bạn tới đúng trang.
 cta_t|Vouchers for your next trip|Voucher cho chuyến đi tiếp theo

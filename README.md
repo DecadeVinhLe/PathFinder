@@ -8,6 +8,8 @@ Pathfinder is a bilingual (English / Vietnamese) web app that helps people in Ho
 
 > **Demo project.** Traffic levels, parking, ride-hail prices, the bus timetable and the metro line are **sample data**. Weather is pulled live from Open-Meteo when available and falls back to a sample snapshot. Nothing here should be used for real trip decisions yet.
 
+> **Scope: Thủ Đức.** Pathfinder is focused on TP. Thủ Đức. Stops, bus routes T1 to T4, the metro stations, popular destinations and the default trip all start from Thủ Đức. Bus routes in the older central-city area are kept as sample data for trips that leave Thủ Đức.
+
 
 <p align="center"><img src="public/images/readme-banner.png" alt="Pathfinder home page" width="100%"></p>
 

@@ -152,6 +152,10 @@ const P=window.Pathfinder={version:'1.0.0',schema:SCHEMA,
  plan:req=>Promise.resolve(plan(req)),planSync:plan,
  on(e,f){(EV[e]=EV[e]||[]).push(f);return P},off(e,f){EV[e]=(EV[e]||[]).filter(x=>x!==f);return P},
  capabilities:()=>({version:P.version,schema:SCHEMA,providers:Object.assign({},PN),networks:NETS.map(n=>({id:n.id,lines:n.lines.length,nodes:Object.keys(n.nodes).length})),messages:['pathfinder:plan','pathfinder:capabilities'],events:['plan','provider','network']}),
+metroOption(from,to,avail,need){const R=norm({from,to,depart:avail,prefs:{start:'auto',egress:'auto'}});if(R.error)return null;
+  const L=planAt(R,R.depart).filter(j=>j.modes.includes('metro')&&!j.modes.includes('brt')).sort((a,b)=>a.arriveMin-b.arriveMin);const j=L[0];if(!j)return null;
+  const rd=j.legs.find(l=>l.kind=='ride'),nn=x=>x&&x.name?(typeof x.name=='object'?x.name[LG]||x.name.en:x.name):'';
+  return{journey:j,dep:Math.round(j.departMin),arr:Math.round(j.arriveMin),minutes:Math.round(j.arriveMin-j.departMin),costVnd:j.costVnd,board:nn(rd.from),alight:nn(rd.to),stops:rd.stops,modes:j.modes,late:need==null?0:Math.round(j.arriveMin-need)}},
  exportICS:j=>ics(j),exportLink:(req)=>link(req)};
 NETS=[netBRT(),netMetro()];rebuild();
 
@@ -182,7 +186,7 @@ const TR={res:null,sel:0,q:null};
 const IC={walk:'🚶',own:'🛵',park:'🅿️',wait:'⏳',hail:'🚕',bikehail:'🏍️',brt:'🚌',metro:'🚇'},COL={walk:'#7a8696',own:'#0B63CE',park:'#7c3aed',wait:'#b8c0cc',hail:'#00a651',bikehail:'#00a651',brt:'#c2410c',metro:'#d62839'};
 const col=l=>l.line&&l.line.color&&l.mode!='wait'?l.line.color:COL[l.mode]||'#888',ic=l=>l.mode=='own'&&l.veh=='car'?'🚗':IC[l.mode]||'•';
 const vnd=n=>n?Math.round(n/1000)+'k':'0';
-const bm=h=>{const p=String(h).split(':');return +p[0]*60+ +p[1]},lateBy=j=>bm(TR.q.by)>=0?j.arriveMin-bm(TR.q.by):0;
+const bm=h=>{const p=String(h).split(':');return +p[0]*60+ +p[1]},lateBy=j=>bm(TR.q.by)>=0?Math.round(j.arriveMin-bm(TR.q.by)):0;
 const ob=j=>{if(!TR.q||!TR.q.by)return'';const d=lateBy(j);return d<=0?' · ✓ '+t('ontime'):' · ⚠ +'+d+' '+t('min')};
 const ot=j=>{if(!TR.q||!TR.q.by)return'';const d=lateBy(j);return`<div>${t('tr_ar_chk')}<b style="color:${d<=0?'#4ade80':'#f87171'}">${d<=0?'✓ '+t('ontime'):'⚠ +'+d+' '+t('min')}</b></div>`};
 const wxs=w=>w?w.icon+' '+(w.tempC!=null?w.tempC+'°':'')+' · '+w.rainPct+'%':'';
@@ -210,7 +214,7 @@ function cardHTML(j,i){const rn=j.outdoorRainMin?`<div>${t('tr_wx')}<b>🌧️ $
  <div class="sp2"><button class="b${i==TR.sel?'':' out'}" data-jsel="${i}">${t('tr_view')}</button><button class="b alt" data-juse data-ji="${i}">${t('choose')}</button></div></div>`}
 const stat=(a,b)=>`<div>${a}<b>${b}</b></div>`;
 function barHTML(j){const tot=Math.max(1,j.arriveMin-j.departMin);return`<div class="jy-bar" role="img" aria-label="${t('tl_t')}">${j.legs.map(l=>`<span style="flex:${Math.max(.6,(l.e-l.s)/tot*100)} 1 0;background:${col(l)}${l.mode=='wait'?';opacity:.45':''}" title="${esc(legTitle(l))} · ${l.minutes} ${t('min')}">${l.minutes>=6?ic(l):''}</span>`).join('')}</div>`}
-function tlHTML(j){return`<ol class="jy-tl">${j.legs.map(l=>{const apps=l.mode=='hail'||l.mode=='bikehail'?`<div class="jy-apps"><a class="jy-ch xsm" href="https://www.greensm.com" target="_blank" rel="noopener">Xanh SM</a><a class="jy-ch be" href="https://be.com.vn" target="_blank" rel="noopener">Be</a><a class="jy-ch grab" href="https://www.grab.com/vn/" target="_blank" rel="noopener">Grab</a></div>`:'';
+function tlHTML(j){return`<ol class="jy-tl">${j.legs.map(l=>{const apps=l.mode=='hail'||l.mode=='bikehail'?`<div class="jy-apps"><a class="jy-ch xsm" href="https://www.greensm.com" target="_blank" rel="noopener">Green SM</a><a class="jy-ch taxi" href="https://www.google.com/maps/search/taxi" target="_blank" rel="noopener">${t('txi_n')}</a></div>`:'';
   const meta=[l.km?l.km+' km':'',l.speedKmh?l.speedKmh+' km/h':'',l.costVnd?'≈ '+vnd(l.costVnd):'',l.stops?tf('lg_stops',{n:l.stops}):'',l.weather?wxs(l.weather):'',l.traffic!=null&&l.traffic>0?t('lv'+l.traffic):''].filter(Boolean).join(' · ');
   const nt=l.delayMin>0?`<div class="mut">${tf('lg_delay',{n:l.delayMin})}</div>`:'';
   return`<li class="jy-i${l.mode=='wait'?' w':''}" style="--c:${col(l)}"><div class="jy-t"><b>${l.start}</b><small>${l.end}</small></div><div class="jy-d"><div class="jy-h"><span class="jy-ic">${ic(l)}</span><b>${esc(legTitle(l))}</b><span class="tg">${l.minutes} ${t('min')}</span></div><div class="mut">${esc(place(l))}</div><div class="jy-m">${meta}</div>${nt}${apps}</div></li>`}).join('')}</ol>`}
@@ -269,8 +273,8 @@ document.addEventListener('click',e=>{let b=e.target.closest('[data-jsel]');if(b
  b=e.target.closest('[data-jeg]');if(b&&TR.res){$('tEg').value=b.dataset.jeg=='walk'?'none':b.dataset.jeg;const k=TR.res.journeys[TR.sel].sig.split('|').slice(0,2).join('|');run();const i=TR.res.journeys.findIndex(j=>j.sig.startsWith(k+'|'));if(i>=0){TR.sel=i;draw()}return}
  b=e.target.closest('[data-jx]');if(b&&TR.res){const J=TR.res.journeys[TR.sel],a=b.dataset.jx;if(a=='copy')copy(JSON.stringify(toJSON(J,TR.res),null,1));else if(a=='json')dl('pathfinder-journey.json','application/json',JSON.stringify(toJSON(J,TR.res),null,1));else if(a=='ics')dl('pathfinder-journey.ics','text/calendar',ics(J));else if(a=='link')copy(link(TR.q));
   else if(a=='watch'){setPlan(TR.res.request.from.name,TR.res.request.to.name,J.departMin,J.modes.includes('metro')||J.modes.includes('brt')?'brt':'car');toast(t('in_watching'))}return}
- b=e.target.closest('[data-tex]');if(b){const X=EXS[+b.dataset.tex-1];$('tFr').value=X.f;$('tTo').value=X.t;$('tAr').value='';setWh('dep',X.at);$('tSt').value=(X.v=='bike'||X.v=='car')?X.v:(X.s=='walk'?'none':X.s);$('tEg').value='auto';mirrorVeh();$('tAl').checked=!!X.a;run()}});
-const EXS=[{f:'Vinhomes Grand Park',t:'Quận 3',at:'07:30',v:'bike',s:'auto',a:0},{f:'Thảo Điền',t:'Quận 8',at:'17:15',v:'none',s:'auto',a:1},{f:'Sân bay Tân Sơn Nhất',t:'Khu Công nghệ cao',at:'08:00',v:'none',s:'auto',a:0}];
+ b=e.target.closest('[data-tex]');if(b){const X=EXS[+b.dataset.tex-1];$('tFr').value=X.f;$('tTo').value=X.t;$('tAr').value='';setWh('dep',X.at);$('tSt').value=(X.v=='bike'||X.v=='car')?X.v:(X.s=='walk'?'none':X.s);$('tEg').value=X.e||'auto';mirrorVeh();$('tAl').checked=!!X.a;run();if(X.pick&&TR.res){const i=TR.res.journeys.findIndex(j=>j.modes.includes('metro')&&j.modes.includes('brt'));if(i>=0&&i!==TR.sel){TR.sel=i;draw()}}}});
+const EXS=[{f:'Vinhomes Grand Park',t:'Quận 3',at:'07:30',v:'bike',s:'auto',a:0},{f:'Thảo Điền',t:'Quận 8',at:'17:15',v:'none',s:'auto',a:1},{f:'Sân bay Tân Sơn Nhất',t:'Khu Công nghệ cao',at:'08:00',v:'none',s:'auto',a:0},{f:'Bệnh viện Thủ Đức',t:'Ga Bến Thành',at:'08:00',v:'none',s:'none',e:'none',a:0,pick:'metro+brt'}];
 
 /* ---------- specific places (OpenStreetMap Nominatim) ---------- */
 window.__GEOC=window.__GEOC||{};
@@ -344,7 +348,7 @@ window.PFJ={carry:jyCarry,ready:()=>!!(TR.q&&TR.q.fromText&&TR.q.toText),get q()
 
 
 /* ---------- popular destinations ---------- */
-const PCAT={work:['shtp','pmh','kcx','qtsc','sala','vgp','td','tdc'],uni:['vnu','bk','khxh','ueh','sgu','tdt','hcmute','nl','fpt','ump'],hosp:['cr','nd1','tn'],park:['tao','ds','st','p239','tcv'],mall:['l81','aeontp','aeonbt','giga','cres','vanh','cbt','cbtay','ctd'],sight:['ndb','dic','nh','bitex'],stn:['bt','mst','tsn','gsg','bxmd','bxmdc','bxmt']};
+const PCAT={work:['shtp','tdc','vgp','td','sala','qtsc','kcx','pmh'],uni:['vnu','hcmute','nl','fpt','hcmiu','uit','bk','khxh','ueh','sgu','tdt','ump'],hosp:['bvtd','cr','nd1','tn'],park:['st','tao','ds','p239','tcv'],mall:['giga','vmm','ctd','l81','aeontp','aeonbt','cres','vanh','cbt','cbtay'],sight:['ndb','dic','nh','bitex'],stn:['mst','mtd','mpl','mrc','map','mtdn','mbt','bxmd','bt','tsn','gsg','bxmdc','bxmt']};
 let PC='work',LASTIN='tTo';['tFr','tTo'].forEach(i=>$(i).addEventListener('focus',()=>LASTIN=i));
 function popDraw(){$('tPopC').innerHTML=Object.keys(PCAT).map(c=>`<button type="button" class="b" aria-pressed="${PC==c}" data-pc="${c}">${t('pc_'+c)}</button>`).join('');$('tPopL').innerHTML=PCAT[PC].map(k=>`<button type="button" class="b alt" data-pp="${k}">${pn(k)}</button>`).join('')}
 document.addEventListener('click',e=>{let b=e.target.closest('[data-pc]');if(b){PC=b.dataset.pc;popDraw();return}b=e.target.closest('[data-pp]');if(b){const i=$(LASTIN);i.value=pn(b.dataset.pp);i.dispatchEvent(new Event('change'))}});

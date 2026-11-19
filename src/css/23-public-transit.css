@@ -1,0 +1,91 @@
+/* Public transit page: laid out like a printed stop timetable.
+   One sheet, sections separated by rules, no card chrome. Colour is kept for route identity and status. */
+
+#v-pub{--pt-ok:#1a7f4b;--pt-bad:#b42318}
+:root[data-theme=dark] #v-pub{--pt-ok:#7be0a8;--pt-bad:#ff8a80}
+
+#v-pub .pg>.w{background:var(--card);color:var(--ink);padding:clamp(18px,3.5vw,40px);border-top:3px solid var(--ink)}
+#v-pub .spot{margin:0 0 24px}
+#v-pub .card{background:none;border:0;border-radius:0;box-shadow:none;padding:0;margin:0}
+#v-pub .card:not(.pt-form){margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+#v-pub .card h3,#v-pub .pt-st,#v-pub .pt-more summary{margin:0 0 6px;font:600 1.15rem/1.3 "Be Vietnam Pro",system-ui,sans-serif;text-transform:none;letter-spacing:0}
+#v-pub iframe{display:block;width:100%;border:0;border-radius:0;border-top:2px solid var(--ink);margin-top:14px}
+
+/* form */
+#v-pub .pt-form .f{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px 24px;align-items:end}
+#v-pub .pt-form label>span{display:block;margin-bottom:2px;font:500 .88rem/1.3 "Be Vietnam Pro",system-ui,sans-serif;text-transform:none;letter-spacing:0;color:var(--mut)}
+#v-pub .pt-form select,#v-pub .pt-form input[type=time]{width:100%;min-height:46px;padding:6px 0;background:transparent;border:0;border-bottom:2px solid var(--ink);border-radius:0;font:600 1.05rem "Be Vietnam Pro",system-ui,sans-serif;color:var(--ink)}
+#v-pub .pt-form select:focus-visible,#v-pub .pt-form input:focus-visible,#v-pub .pt-form button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+#v-pub #go{min-height:46px;padding:0 24px;background:var(--ink);color:var(--card);border:0;border-radius:2px;font:600 1rem "Be Vietnam Pro",system-ui,sans-serif;text-transform:none;letter-spacing:0;cursor:pointer}
+#v-pub .qk{display:flex;flex-wrap:wrap;align-items:center;gap:2px 4px;margin-top:14px}
+#v-pub .qk .mut{margin:0 4px 0 0;font-size:.88rem}
+#v-pub .qk .b{min-height:44px;padding:0 8px;background:none;border:0;border-radius:0;color:var(--ink);font:600 .92rem "Be Vietnam Pro",system-ui,sans-serif;text-transform:none;letter-spacing:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+
+/* route badge, used everywhere a route is named */
+#v-pub .pt-rb{display:inline-grid;place-items:center;min-width:2.3em;height:1.9em;padding:0 .45em;background:var(--c,#444);color:#fff;border-radius:2px;font:700 .9rem/1 "Be Vietnam Pro",system-ui,sans-serif;font-variant-numeric:tabular-nums;vertical-align:middle}
+#v-pub .pt-rb.big{font-size:1.35rem;flex:none}
+
+/* best trip */
+#v-pub #pres{margin-top:36px}
+#v-pub .pt-urg{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;margin-bottom:28px;padding:14px 18px;border-left:4px solid var(--ink);background:var(--sel)}
+#v-pub .pt-lead{display:flex;gap:16px;align-items:flex-start}
+#v-pub .pt-h{margin:0;max-width:38ch;font:600 clamp(1.3rem,2.7vw,1.8rem)/1.3 "Be Vietnam Pro",system-ui,sans-serif}
+#v-pub .pt-sub{margin:8px 0 0;color:var(--mut);font-size:.95rem}
+#v-pub .pt-grid{display:grid;gap:32px 56px;margin-top:30px}
+@media(min-width:860px){#v-pub .pt-grid{grid-template-columns:minmax(0,1.25fr) minmax(250px,1fr)}}
+
+/* stop line */
+#v-pub .pt-line{list-style:none;margin:0;padding:0}
+#v-pub .pt-line li{position:relative;display:grid;grid-template-columns:1fr auto;column-gap:16px;padding:0 0 24px 34px;line-height:1.35}
+#v-pub .pt-line li:last-child{padding-bottom:0}
+#v-pub .pt-line li::before{content:"";position:absolute;left:0;top:.15em;width:12px;height:12px;border:3px solid var(--c);border-radius:50%;background:var(--card);box-sizing:content-box}
+#v-pub .pt-line li:first-child::before,#v-pub .pt-line li:last-child::before{background:var(--c)}
+#v-pub .pt-line li:not(:last-child)::after{content:"";position:absolute;left:7.5px;top:calc(.15em + 18px);bottom:-.15em;border-left:3px solid var(--c)}
+#v-pub .pt-line li.slow::after{border-left-style:dashed}
+#v-pub .pt-line .nm{font-weight:500}
+#v-pub .pt-line li:first-child .nm,#v-pub .pt-line li:last-child .nm{font-weight:700}
+#v-pub .pt-line time{font-weight:600;font-variant-numeric:tabular-nums}
+#v-pub .pt-jn{grid-column:1/-1;margin-top:4px;color:var(--mut);font-size:.86rem}
+#v-pub .pt-jp{margin:22px 0 0;max-width:62ch;color:var(--mut);font-size:.92rem}
+#v-pub .pt-jp b{color:var(--ink)}
+
+/* facts */
+#v-pub .pt-facts{margin:0}
+#v-pub .pt-facts>div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:11px 0;border-top:1px solid var(--line)}
+#v-pub .pt-facts>div:first-child{border-top:2px solid var(--ink)}
+#v-pub .pt-facts dt{color:var(--mut);font-size:.92rem}
+#v-pub .pt-facts dd{margin:0;font:600 1.3rem "Be Vietnam Pro",system-ui,sans-serif;font-variant-numeric:tabular-nums;text-align:right}
+#v-pub .pt-facts dd small{margin-left:4px;color:var(--mut);font-size:.82rem;font-weight:500}
+#v-pub .pt-bar{display:flex;height:6px;margin:18px 0 0;background:var(--line)}
+#v-pub .pt-bar i{background:repeating-linear-gradient(90deg,var(--mut) 0 2px,transparent 2px 5px)}
+#v-pub .pt-why{margin:14px 0 8px;max-width:50ch;font-size:.95rem}
+
+/* plain-text controls */
+#v-pub .pt-link{display:inline-block;min-height:44px;padding:10px 0;margin:0 14px 0 0;background:none;border:0;color:var(--ac);font:600 .95rem "Be Vietnam Pro",system-ui,sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+#v-pub .pt-btn{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;background:var(--ink);color:var(--card);border-radius:2px;font:600 .95rem "Be Vietnam Pro",system-ui,sans-serif;text-decoration:none}
+#v-pub .pt-link:focus-visible,#v-pub .pt-btn:focus-visible,#v-pub .pt-tol button:focus-visible,#v-pub .pt-more summary:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+#v-pub .fit{display:inline;padding:0;border-radius:0;background:none;font-weight:600;font-size:inherit}
+#v-pub .fit-early{color:var(--mut)}
+#v-pub .pt-ok{color:var(--pt-ok);font-weight:600}
+#v-pub .pt-bad{color:var(--pt-bad);font-weight:600}
+
+/* sections and tables */
+#v-pub .pt-sec{margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+#v-pub .pt-sech{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 20px}
+#v-pub .pt-tol{display:flex;gap:4px}
+#v-pub .pt-tol button{min-height:44px;padding:0 10px;background:none;border:0;border-bottom:2px solid transparent;border-radius:0;color:var(--mut);font:500 .92rem "Be Vietnam Pro",system-ui,sans-serif;cursor:pointer}
+#v-pub .pt-tol button[aria-pressed=true]{border-bottom-color:var(--ink);color:var(--ink);font-weight:700}
+#v-pub .pt-msg{margin:0}
+#v-pub .pt-more summary{cursor:pointer;list-style:none;min-height:44px;display:flex;align-items:center}
+#v-pub .pt-more summary::-webkit-details-marker{display:none}
+#v-pub .pt-more summary::before{content:"+";display:inline-block;width:1.2em;font-weight:400}
+#v-pub .pt-more[open] summary::before{content:"\2212"}
+#v-pub table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+#v-pub th{padding:8px 14px 8px 0;border-bottom:2px solid var(--ink);background:none;color:var(--mut);font:500 .85rem "Be Vietnam Pro",system-ui,sans-serif;text-align:left;text-transform:none;letter-spacing:0;white-space:nowrap}
+#v-pub td{padding:12px 14px 12px 0;border-bottom:1px solid var(--line);background:none;vertical-align:top;font-size:.95rem;line-height:1.45}
+#v-pub tr.sel td{background:var(--sel)}
+#v-pub tr.sel td:first-child{padding-left:8px}
+#v-pub .pt-ledger td:nth-child(1),#v-pub .pt-ledger td:nth-child(2),#v-pub .pt-ledger td:nth-child(3){white-space:nowrap}
+#v-pub .pt-ledger td:nth-child(4){color:var(--mut);min-width:220px}
+
+@media(prefers-reduced-motion:no-preference){#v-pub .pt-link,#v-pub .pt-btn{transition:opacity .15s}#v-pub .pt-link:hover,#v-pub .pt-btn:hover{opacity:.75}}

@@ -21,6 +21,7 @@ tr_ex|Try an example|Thử ví dụ
 tr_ex1|Grand Park to District 3|Grand Park đến Quận 3
 tr_ex2|Alley, no bus nearby|Hẻm, không có xe buýt
 tr_ex3|Airport to Hi-Tech Park|Sân bay tới Khu Công nghệ cao
+tr_ex4|Bus + metro: Thu Duc Hospital to Ben Thanh|Xe buýt + metro: BV Thủ Đức đến Bến Thành
 tr_need|We could not find that place. Type a full address, pick a suggestion from the list, or enter latitude,longitude.|Không tìm thấy địa điểm này. Hãy nhập địa chỉ đầy đủ, chọn gợi ý trong danh sách hoặc nhập vĩ độ,kinh độ.
 tr_none|No journey fits. Try another time or another start.|Không có hành trình phù hợp. Thử giờ khác hoặc cách xuất phát khác.
 tr_alts|Options|Các phương án

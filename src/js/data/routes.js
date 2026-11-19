@@ -1,5 +1,25 @@
 /* Bus routes, headways and jam segments */
 const ROUTES = [
+  /* ============ THỦ ĐỨC — phạm vi dự án (dữ liệu mẫu) ============ */
+  { id:'T1', color:'#0ea5e9', type:'Local',   headway:10, first:'05:30', last:'22:00',
+    stops:[['sTien',0],['vnuS',5],['nlam',9],['techpark',16],['gaTD',24],['chotd',31]],
+    jamSegments:[{ at:4, sev:'heavy', add:5, note:'Ngã tư Thủ Đức — kẹt giờ cao điểm' }] },
+
+  { id:'T2', color:'#7c3aed', type:'Express', headway:12, first:'05:45', last:'21:45',
+    stops:[['bxmd',0],['sTien',6],['techpark',15],['gaTD',22],['gaPL',28],['gaAP',36],['village',42]],
+    jamSegments:[{ at:4, sev:'medium', add:4, note:'Xa lộ Hà Nội — đông xe giờ cao điểm' },
+                 { at:5, sev:'light',  add:2, note:'Võ Nguyên Giáp — đoạn qua Phước Long' }] },
+
+  { id:'T3', color:'#16a34a', type:'Local',   headway:15, first:'05:40', last:'21:30',
+    stops:[['vgp',0],['fptu',7],['sTien',14],['vnuS',19],['nlam',23]],
+    jamSegments:[{ at:2, sev:'light', add:3, note:'Đường D1 — hơi chậm giờ tan học' }] },
+
+  { id:'T4', color:'#f97316', type:'Local',   headway:20, first:'06:00', last:'21:20',
+    stops:[['giga',0],['chotd',12],['hcmute',18],['nlam',26],['vnuS',31],['bxmd',38]],
+    jamSegments:[{ at:1, sev:'medium', add:4, note:'Kha Vạn Cân — đông xe máy giờ cao điểm' },
+                 { at:2, sev:'light',  add:2, note:'Võ Văn Ngân — gần ĐH Sư phạm Kỹ thuật' }] },
+
+  /* ============ Các tuyến khu vực lân cận ============ */
   { id:'05', color:'#c2410c', type:'Local',   headway:15, first:'05:30', last:'22:00',
     stops:[['hub',0],['riverside',7],['techpark',14],['village',22]],
     jamSegments:[{ at:1, sev:'heavy', add:6, note:'Cầu Thủ Thiêm — ùn ứ giờ cao điểm' }] },

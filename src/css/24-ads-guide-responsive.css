@@ -1,0 +1,73 @@
+/* Ads and guide chat: responsive layout.
+   - Wide screens: the ad dock sits bottom-left and leaves room for the guide button.
+   - Phones: the dock spans the screen width, the guide button rides above it, and opening
+     the guide hides the dock so the two never overlap.
+   - In-page ad slots reflow inside their own column, whatever its width. */
+
+/* in-page ads: never overflow their column, long copy wraps or clamps */
+.promo{max-width:100%;container-type:inline-size}
+.promo .promo-inner,#spDock .promo-inner{min-width:0;padding-right:44px}
+.promo-copy b{overflow-wrap:anywhere}
+.promo-copy p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
+.promo-label{right:38px}
+@container (max-width:340px){
+  .promo-cta{display:none}
+  .promo-can{width:32px;height:44px}
+  .promo-emoji{width:36px;height:36px;font-size:18px}
+  .promo-copy b{font-size:13.5px}
+  .promo-copy p{font-size:11.5px}
+}
+
+/* guide chat button and panel */
+#chatB{inset-inline-end:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));white-space:nowrap}
+#chatP{
+  right:max(16px,env(safe-area-inset-right,0px));
+  bottom:calc(max(16px,env(safe-area-inset-bottom,0px)) + 56px);
+  width:min(380px,calc(100vw - 32px));
+  height:min(480px,calc(100dvh - 140px));
+  max-height:none;
+}
+#chatL{overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+#chatF input{font-size:16px}
+
+/* tablet: dock keeps clear of the guide button */
+@media (max-width:980px){
+  #spDock{right:calc(max(16px,env(safe-area-inset-right,0px)) + 132px);max-width:none}
+}
+
+/* phone: dock is full width at the bottom, guide button rides above it */
+@media (max-width:640px){
+  #spDock{left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:max(12px,env(safe-area-inset-bottom,0px))}
+  #spDock .promo-inner{padding:9px 44px 9px 12px;gap:10px}
+  #spDock .promo-can{width:30px;height:42px}
+  #spDock .promo-emoji{width:36px;height:36px;font-size:18px}
+  #spDock .promo-copy b{font-size:13.5px}
+  #spDock .promo-copy p{font-size:11.5px;-webkit-line-clamp:1;line-clamp:1}
+  #spDock .promo-cta{padding:7px 11px;font-size:11.5px}
+  body:has(#spDock:not(:empty)) #chatB{bottom:calc(max(12px,env(safe-area-inset-bottom,0px)) + 84px)}
+  body:has(#spDock:not(:empty)) #chatP{bottom:calc(max(12px,env(safe-area-inset-bottom,0px)) + 140px);height:min(480px,calc(100dvh - 210px))}
+  /* with the guide open, the dock steps aside */
+  body.chat-open #spDock{display:none}
+  body.chat-open #chatB{bottom:max(16px,env(safe-area-inset-bottom,0px))}
+  body.chat-open #chatP{bottom:calc(max(16px,env(safe-area-inset-bottom,0px)) + 56px);height:min(520px,calc(100dvh - 140px))}
+}
+
+/* very small phones: guide panel uses the full width */
+@media (max-width:420px){
+  #chatP{left:max(8px,env(safe-area-inset-left,0px));right:max(8px,env(safe-area-inset-right,0px));width:auto}
+  #chatB{padding:6px 14px}
+  #spDock .promo-cta{display:none}
+}
+
+/* short landscape screens: keep the panel inside the viewport, hide the dock while chatting */
+@media (max-height:480px){
+  #chatP{height:calc(100dvh - 84px)}
+  body.chat-open #spDock{display:none}
+}
+
+/* very narrow screens: keep the header inside the viewport */
+@media (max-width:360px){
+  .brand{font-size:1rem}.brand img{height:30px}
+  .top{gap:6px}.tools{gap:6px}
+  #mnuB{padding-inline:10px}
+}
