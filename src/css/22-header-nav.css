@@ -78,7 +78,7 @@ nav>button,.ddw>button{gap:14px;justify-content:flex-start;min-height:52px;paddi
    Desktop: the controls sit on the navy header, so the pill is solid white with navy text. */
 #hd .mtools #lgB{min-height:40px;padding:0 20px;border:2px solid var(--ac);background:var(--ac);color:var(--on);font-weight:700;font-size:.88rem;letter-spacing:.01em;cursor:pointer}
 #hd .mtools #lgB:hover{filter:brightness(1.1)}
-#hd .mtools #lgB:focus-visible,#hd .tool.sw:focus-visible{outline:3px solid var(--tag);outline-offset:2px}
+#hd .mtools #lgB:focus-visible,#hd .tool.sw:focus-visible{outline:2px solid var(--tag);outline-offset:3px}
 #hd .mtools .tool.sw{border:2px solid var(--ink);background-color:var(--card)}
 #hd .mtools .tool.sw::after{background:var(--ink)}
 #hd .mtools .tool.sw[aria-checked=true]{background-color:var(--tag);border-color:var(--ink)}
@@ -87,7 +87,8 @@ nav>button,.ddw>button{gap:14px;justify-content:flex-start;min-height:52px;paddi
  #hd .mtools #lgB{height:38px;min-height:0;padding:0 16px;background:#fff;color:var(--night);border:2px solid #fff;font-size:.82rem}
  #hd .mtools #lgB:hover{background:var(--tag);border-color:var(--tag);color:#0B1B33;filter:none}
  #hd .mtools .tool.sw{border:2px solid #fff;background-color:rgba(255,255,255,.18)}
- #hd .mtools .tool.sw::after{background:#fff}
+ /* 56x30 switch with a 2px border = 52x26 inner box; a 22px knob with a 2px gap on every side travels 26px */
+ #hd .mtools .tool.sw::after{top:2px;left:2px;width:22px;height:22px;background:#fff}
  #hd .mtools .tool.sw[aria-checked=true]{background-color:var(--tag);border-color:var(--tag)}
  #hd .mtools .tool.sw[aria-checked=true]::after{background:var(--ink-c)}
 }
