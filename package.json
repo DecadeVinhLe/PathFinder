@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "pnpm dlx serve . -l 5173",
     "start": "pnpm run dev",
-    "check": "node scripts/check.mjs"
+    "check": "node scripts/check.mjs",
+    "test": "node --test tests/*.mjs",
+    "verify": "node scripts/check.mjs && node --test tests/*.mjs"
   },
   "packageManager": "pnpm@9.15.4",
   "engines": {

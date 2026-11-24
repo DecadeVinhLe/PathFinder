@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="src/css/19-page-backgrounds.css">
 <link rel="stylesheet" href="src/css/20-menu-panel.css">
 <link rel="stylesheet" href="src/css/21-city-3d.css">
-<link rel="stylesheet" href="src/css/22-header-nav.css"><link rel="stylesheet" href="src/css/23-public-transit.css"><link rel="stylesheet" href="src/css/24-ads-guide-responsive.css">
+<link rel="stylesheet" href="src/css/22-header-nav.css"><link rel="stylesheet" href="src/css/23-public-transit.css"><link rel="stylesheet" href="src/css/24-ads-guide-responsive.css"><link rel="stylesheet" href="src/css/25-journey-choice.css">
 <header id="hd"><div class="w top"><a class="brand" href="#home" data-v="home"><img src="public/images/logo.png" alt="Pathfinder logo">Pathfinder</a>
 <div class="tools"><button class="tool" id="bellB" aria-label="Notifications" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg><span id="bellN" hidden></span></button></div>
 <button id="mnuB" aria-label="Menu" aria-expanded="false" aria-controls="mp"><span data-i="m_menu"></span><span class="burger" aria-hidden="true"></span></button>
@@ -76,7 +76,8 @@
 <div class="card"><form id="tripF" novalidate><div class="f"><label><span data-i="from"></span><input id="tFr" list="dl" autocomplete="off" placeholder="Vinhomes Grand Park"></label><label><span data-i="to"></span><input id="tTo" list="dl" autocomplete="off" placeholder="Quận 3"></label><label id="tStL"><span data-i="tr_mode_dep"></span><input type="time" id="tTm"></label><label id="tArW"><span data-i="tr_mode_arr"></span><input type="time" id="tAr"></label><input type="hidden" id="tWh" value="dep"></div>
 <details class="pd" id="tPop"><summary data-i="tr_pop"></summary><div class="tabs" id="tPopC"></div><div class="row" id="tPopL"></div></details>
 <div class="f" style="margin-top:14px"><select id="tVeh" hidden><option value="none"></option><option value="bike"></option><option value="car"></option></select><label><span data-i="tr_start"></span><select id="tSt"><option value="none" data-i="tr_nv"></option><option value="hail" data-i="tr_s_hail"></option><option value="bike" data-i="tr_s_mybike"></option><option value="car" data-i="tr_s_mycar"></option><option value="auto" data-i="tr_s_auto" selected></option></select></label><label><span data-i="tr_finish"></span><select id="tEg"><option value="none" data-i="tr_nv"></option><option value="bikehail" data-i="lm_bikehail"></option><option value="hail" data-i="lm_hail"></option><option value="auto" data-i="tr_s_auto" selected></option></select></label><label><span><input type="checkbox" id="tAl" style="width:auto;min-height:0"> <span data-i="tr_alley"></span></span></label><button class="b" id="tGo" data-i="tr_go"></button></div></form>
-<div class="row qk"><button type="button" class="lnk" id="tLoc" data-i="tr_loc"></button><span class="mut" data-i="tr_ex"></span><button type="button" class="b out" data-tex="1" data-i="tr_ex1"></button><button type="button" class="b out" data-tex="2" data-i="tr_ex2"></button><button type="button" class="b out" data-tex="3" data-i="tr_ex3"></button><button type="button" class="b out" data-tex="4" data-i="tr_ex4"></button></div></div>
+<div class="row qk"><button type="button" class="lnk" id="tLoc" data-i="tr_loc"></button><span class="mut" data-i="tr_ex"></span><button type="button" class="b out" data-tex="1" data-i="tr_ex1"></button><button type="button" class="b out" data-tex="2" data-i="tr_ex2"></button><button type="button" class="b out" data-tex="3" data-i="tr_ex3"></button><button type="button" class="b out" data-tex="4" data-i="tr_ex4"></button></div>
+<div class="row qk" id="tRecent" hidden><span class="mut" data-i="hist_t"></span><span class="row" id="tRecentL"></span><label class="hist-sync"><input type="checkbox" id="tSync" style="width:auto;min-height:0"> <span data-i="hist_sync"></span></label><button type="button" class="lnk" id="tClear" data-i="hist_clear"></button></div></div>
 <div id="tOut"></div><div id="tCmp" hidden><h2 data-i="tr_cmp"></h2>
 <div class="card"><div class="f" hidden><label><span data-i="from"></span><select class="ar" id="pF"></select></label><label><span data-i="to"></span><select class="ar" id="pT"></select></label><label><span data-i="leave"></span><input type="time" id="tm"></label><button class="b" id="cmp" data-i="cmp"></button></div>
 <div class="sc"><table id="ct"></table></div><div class="v" id="pick" data-i="pick0"></div><div id="cmpW"></div></div>
@@ -126,6 +127,7 @@
 <script src="src/js/core/boot.js"></script>
 <script src="src/js/i18n/journey-strings.js"></script>
 <script src="src/js/features/journey.js"></script>
+<script src="src/js/features/journey-history.js"></script>
 <script src="src/js/features/scroll-reveal.js"></script>
 <script src="src/js/features/hero-board.js"></script>
 <script src="src/js/features/place-autocomplete.js"></script>

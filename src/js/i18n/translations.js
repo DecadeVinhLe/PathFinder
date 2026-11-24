@@ -107,6 +107,11 @@ rdm|Redeem code|Đổi mã
 your|Your code|Mã của bạn
 copy|Copy|Sao chép
 chat|Guide|Hướng dẫn
+faq_t|Common questions: tap one to see the answer|Câu hỏi thường gặp: chạm để xem câu trả lời
+hist_t|Recent journeys|Hành trình gần đây
+hist_sync|Also keep them in my Pathfinder store (optional)|Lưu thêm vào kho Pathfinder của tôi (tuỳ chọn)
+hist_clear|Clear|Xoá
+hist_unavail|The server store is not available here, so journeys stay in this browser only.|Kho máy chủ không khả dụng ở đây, nên hành trình chỉ lưu trong trình duyệt này.
 send|Send|Gửi
 hi|Hi! Ask about planning, buses, vouchers or weather.|Chào bạn! Hỏi về kế hoạch, xe buýt, voucher hoặc thời tiết.
 dk|Not sure. Try: compare, bus, voucher, weather.|Chưa rõ. Thử: so sánh, xe buýt, voucher, thời tiết.

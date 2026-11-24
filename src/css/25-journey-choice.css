@@ -1,0 +1,18 @@
+/* Journey: the traveller's own choice.
+   "on" (yellow/blue ring) = what Pathfinder recommends. "picked" (green ring + flag) = what YOU chose.
+   They can sit on the same card; green always wins so the choice is never lost. */
+:root{--pick:#0E7A4B;--pick-bg:#E7F6EE;--pick-ink:#fff}
+:root[data-theme=dark]{--pick:#3DDC97;--pick-bg:#0F2D26;--pick-ink:#062018}
+.alt-i{position:relative}
+.alt-i.picked,#pvp .alt-i.picked{border-color:var(--pick);outline:3px solid var(--pick);outline-offset:0;background:var(--pick-bg);box-shadow:0 12px 28px -14px var(--pick)}
+.alt-i.picked .b,#pvp .alt-i.picked .b{background:var(--pick);border-color:var(--pick);color:var(--pick-ink)}
+.alt-i.picked .b:hover{filter:brightness(1.08)}
+.pick-flag{position:absolute;top:-2px;right:-2px;z-index:2;padding:4px 10px 5px 12px;border-radius:0 var(--rd,3px) 0 12px;background:var(--pick);color:var(--pick-ink);font:700 .68rem/1 var(--font-m,monospace);letter-spacing:.08em;text-transform:uppercase}
+.alt-i.picked .tgs{padding-right:104px}
+@media (prefers-reduced-motion:no-preference){.alt-i.picked{animation:pickIn .28s cubic-bezier(.23,1,.32,1)}}
+@keyframes pickIn{from{transform:scale(.985)}to{transform:none}}
+
+/* recent journeys row */
+#tRecentL{flex-wrap:wrap;gap:6px}
+#tRecentL .b{max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:6px 12px;font-size:.78rem}
+.hist-sync{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;color:var(--mut);margin-left:auto}

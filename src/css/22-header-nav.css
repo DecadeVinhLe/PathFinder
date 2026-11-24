@@ -72,3 +72,22 @@ nav>button,.ddw>button{gap:14px;justify-content:flex-start;min-height:52px;paddi
 .bd-h span{color:var(--tag)}
 @media (max-width:900px){.hero{padding:44px 0 64px;min-height:0}}
 @media (prefers-reduced-motion:reduce){.mp.open,.dd.open{animation:none}.burger::before,.burger::after{transition:none}}
+
+/* Language and theme controls: readable in light AND dark mode.
+   Mobile sheet: the panel follows the theme, so the pill uses the theme accent (blue in light, amber in dark).
+   Desktop: the controls sit on the navy header, so the pill is solid white with navy text. */
+#hd .mtools #lgB{min-height:40px;padding:0 20px;border:2px solid var(--ac);background:var(--ac);color:var(--on);font-weight:700;font-size:.88rem;letter-spacing:.01em;cursor:pointer}
+#hd .mtools #lgB:hover{filter:brightness(1.1)}
+#hd .mtools #lgB:focus-visible,#hd .tool.sw:focus-visible{outline:3px solid var(--tag);outline-offset:2px}
+#hd .mtools .tool.sw{border:2px solid var(--ink);background-color:var(--card)}
+#hd .mtools .tool.sw::after{background:var(--ink)}
+#hd .mtools .tool.sw[aria-checked=true]{background-color:var(--tag);border-color:var(--ink)}
+#hd .mtools .tool.sw[aria-checked=true]::after{background:var(--ink-c)}
+@media (min-width:1024px){
+ #hd .mtools #lgB{height:38px;min-height:0;padding:0 16px;background:#fff;color:var(--night);border:2px solid #fff;font-size:.82rem}
+ #hd .mtools #lgB:hover{background:var(--tag);border-color:var(--tag);color:#0B1B33;filter:none}
+ #hd .mtools .tool.sw{border:2px solid #fff;background-color:rgba(255,255,255,.18)}
+ #hd .mtools .tool.sw::after{background:#fff}
+ #hd .mtools .tool.sw[aria-checked=true]{background-color:var(--tag);border-color:var(--tag)}
+ #hd .mtools .tool.sw[aria-checked=true]::after{background:var(--ink-c)}
+}

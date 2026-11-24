@@ -35,17 +35,21 @@
   #spDock{right:calc(max(16px,env(safe-area-inset-right,0px)) + 132px);max-width:none}
 }
 
-/* phone: dock is full width at the bottom, guide button rides above it */
+/* phone: a SHORT one-line dock. It stops before the bottom-right corner (var(--dock-gap-r)) so the
+   Netlify badge never covers it; change the two --dock-gap variables if the badge sits elsewhere.
+   The guide button rides just above the dock. */
 @media (max-width:640px){
-  #spDock{left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:max(12px,env(safe-area-inset-bottom,0px))}
-  #spDock .promo-inner{padding:9px 44px 9px 12px;gap:10px}
-  #spDock .promo-can{width:30px;height:42px}
-  #spDock .promo-emoji{width:36px;height:36px;font-size:18px}
-  #spDock .promo-copy b{font-size:13.5px}
-  #spDock .promo-copy p{font-size:11.5px;-webkit-line-clamp:1;line-clamp:1}
-  #spDock .promo-cta{padding:7px 11px;font-size:11.5px}
-  body:has(#spDock:not(:empty)) #chatB{bottom:calc(max(12px,env(safe-area-inset-bottom,0px)) + 84px)}
-  body:has(#spDock:not(:empty)) #chatP{bottom:calc(max(12px,env(safe-area-inset-bottom,0px)) + 140px);height:min(480px,calc(100dvh - 210px))}
+  :root{--dock-gap-l:12px;--dock-gap-r:84px;--dock-h:44px}
+  #spDock{left:max(var(--dock-gap-l),env(safe-area-inset-left,0px));right:max(var(--dock-gap-r),env(safe-area-inset-right,0px));bottom:max(12px,env(safe-area-inset-bottom,0px));max-width:none}
+  #spDock .promo{border-radius:12px}
+  #spDock .promo-inner{min-height:var(--dock-h);padding:5px 34px 5px 8px;gap:8px}
+  #spDock .promo-can{width:22px;height:30px}
+  #spDock .promo-emoji{width:30px;height:30px;font-size:15px;border-radius:8px}
+  #spDock .promo-copy b{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #spDock .promo-copy p,#spDock .promo-cta,#spDock .promo-label{display:none}
+  #spDock .promo-close{top:50%;right:6px;width:24px;height:24px;transform:translateY(-50%)}
+  body:has(#spDock:not(:empty)) #chatB{bottom:calc(max(12px,env(safe-area-inset-bottom,0px)) + var(--dock-h) + 12px)}
+  body:has(#spDock:not(:empty)) #chatP{bottom:calc(max(12px,env(safe-area-inset-bottom,0px)) + var(--dock-h) + 68px);height:min(480px,calc(100dvh - 190px))}
   /* with the guide open, the dock steps aside */
   body.chat-open #spDock{display:none}
   body.chat-open #chatB{bottom:max(16px,env(safe-area-inset-bottom,0px))}
@@ -56,8 +60,8 @@
 @media (max-width:420px){
   #chatP{left:max(8px,env(safe-area-inset-left,0px));right:max(8px,env(safe-area-inset-right,0px));width:auto}
   #chatB{padding:6px 14px}
-  #spDock .promo-cta{display:none}
 }
+
 
 /* short landscape screens: keep the panel inside the viewport, hide the dock while chatting */
 @media (max-height:480px){
@@ -71,3 +75,13 @@
   .top{gap:6px}.tools{gap:6px}
   #mnuB{padding-inline:10px}
 }
+
+/* guide: tap-to-ask questions (no typing needed) */
+#chatQ{display:flex;gap:6px;overflow-x:auto;padding:8px 10px;border-top:1px solid var(--line);scrollbar-width:thin;-webkit-overflow-scrolling:touch;flex:none}
+#chatQ:empty{display:none}
+#chatQ button{flex:none;max-width:240px;padding:7px 12px;border-radius:999px;border:1.5px solid var(--ac);background:transparent;color:var(--ink);font:600 .8rem/1.2 "Be Vietnam Pro",sans-serif;text-align:left;white-space:normal;cursor:pointer}
+#chatQ button:hover,#chatQ button:focus-visible{background:var(--ac);color:var(--on)}
+#chatQ button[aria-pressed=true],#chatQ button[aria-pressed=true]:hover,#chatQ button[aria-pressed=true]:focus-visible{background:var(--sel);color:var(--ink);border-color:var(--pick,var(--ac));border-width:2px}
+#chatL p{margin:0 0 10px}
+#chatL p.a{padding:10px 12px;border-radius:10px;background:var(--sel)}
+#chatL p.q{text-align:right}

@@ -1,11 +1,15 @@
 import { getDatabase } from '@netlify/database';
 import { randomUUID, createHash } from 'node:crypto';
+import { handleStore, loadBlobs } from './doc-store.mjs';
 const db = getDatabase();
-export const config = { path: '/api/community/*' };
+export const config = { path: ['/api/community/*', '/api/store/*'] };
 const hash = value => createHash('sha256').update(value).digest('hex');
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const publicPost = (row, owner) => ({ id:row.id, ts:new Date(row.created_at).getTime(), ty:row.type, r:row.rating, m:row.mode, tx:row.body, own:row.owner_hash === owner, origin:row.origin, destination:row.destination, departedAt:row.departed_at, durationMinutes:row.duration_minutes, congestion:row.congestion });
-export default async function handler(request) {
+export default async function handler(request, context) {
+  if (new URL(request.url).pathname.startsWith('/api/store')) {
+    return handleStore(request, { getStore: await loadBlobs(), deployContext: context?.deploy?.context ?? process.env.CONTEXT });
+  }
   const headers = { 'Cache-Control':'no-store', 'Content-Type':'application/json' };
   const reply = (data, status=200) => new Response(JSON.stringify(data), { status, headers });
   const path = new URL(request.url).pathname;

@@ -202,3 +202,31 @@ Posts can include origin, destination, actual departure (stored with timezone), 
 An anonymous HttpOnly cookie controls deletion from the posting browser. It is not a user account and clearing cookies loses deletion access. Existing browser-only posts and monthly survey responses remain on their original device and are not automatically published.
 
 Run API validation checks with `node --test tests/community-api.test.mjs`. Full persistence checks require a deployed preview after migrations have been applied.
+
+## Data store (NoSQL) for recent journeys and preferences
+
+`netlify/server/doc-store.mjs` adds a small document store at `/api/store/*` on the same Netlify Server as the community API.
+It keeps **one JSON document per browser** (recent journeys, language/theme) in [Netlify Blobs](https://docs.netlify.com/build/data-and-storage/netlify-blobs/), with optimistic concurrency (etag) and strict validation. It is **opt-in**: the Journey page only sends data when the visitor ticks "Also keep them in my Pathfinder store", and "Clear" erases it.
+
+**One-time setup** (the package is loaded lazily, so deploys stay green until you do this):
+
+```bash
+pnpm add @netlify/blobs      # updates package.json and pnpm-lock.yaml; commit both
+```
+
+Until then `/api/store/*` answers `503` and the app keeps working with browser-only history.
+
+| Route | Purpose |
+| --- | --- |
+| `GET /api/store/me` | the visitor's journeys and prefs |
+| `POST /api/store/journeys` | add or refresh one recent journey (20 kept) |
+| `PUT /api/store/prefs` | `{ lang, theme }` |
+| `DELETE /api/store/me` | erase everything for this visitor |
+
+Notes: identity is an HttpOnly cookie, so data is per browser, not per account (add Netlify Identity if you need cross-device). Deploy Previews use a separate store (`pf-docs-preview`) so they never touch production data. Blobs suits small, infrequently written documents; keep relational data (like community posts) in Netlify Database.
+
+## Checks
+
+```bash
+pnpm run verify     # source check (no orphan files, valid JS) + all tests; also runs in CI on every push
+```
